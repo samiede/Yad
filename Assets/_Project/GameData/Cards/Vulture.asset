@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ff0fbb5dbd684335803b1fc50080bf9, type: 3}
+  m_Name: Vulture
+  m_EditorClassIdentifier: 
+  cardType: {fileID: 11400000, guid: c22f33e0de5a04457ac84ad3188e773c, type: 2}
+  properties:
+  - stringValue: Cool-Ass Vulture
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    intValue: 0
+    element: {fileID: 11400000, guid: 92394c03084e341a5887d8ef1490304b, type: 2}
+  - stringValue: It's gonna peck your heart out!
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    intValue: 0
+    element: {fileID: 11400000, guid: 6ede1ea74640a4ace88ec4ef7a907565, type: 2}
+  - stringValue: 
+    texture: {fileID: 2800000, guid: 4e02a76c0009843c8bfb971f5707f288, type: 3}
+    sprite: {fileID: 0}
+    intValue: 0
+    element: {fileID: 11400000, guid: 88fa698cc8368484b8b76e48b6dce775, type: 2}
+  - stringValue: 
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    intValue: 1
+    element: {fileID: 11400000, guid: c2a78ec83fbfe459b894e19f9c940bd4, type: 2}
+  - stringValue: 
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    intValue: 5
+    element: {fileID: 11400000, guid: 2a7ac73c1fcb2451d9aff4e52d80cd5f, type: 2}
+  - stringValue: 
+    texture: {fileID: 0}
+    sprite: {fileID: 0}
+    intValue: 5
+    element: {fileID: 11400000, guid: 67c28f77861b2476ca99e483f3508780, type: 2}
+  cardMaterial: {fileID: 2100000, guid: 761c6f8a56ef347fa8580b51ede99c81, type: 2}
+  description: It's gonna peck your heart out!
+  spawnPlaceablesData: {fileID: 11400000, guid: c639e7a3709c14ead868101bd2a6776f, type: 2}

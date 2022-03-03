@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83ee98c39764b1ca355cf45289476f7, type: 3}
+  m_Name: Enter EnemyTurn UI Update
+  m_EditorClassIdentifier: 
+  buttonText: Enemy Turn
+  onEnterTurn: {fileID: 11400000, guid: 21cb381bf78b84958b608b0964131b7c, type: 2}
+  stats: {fileID: 11400000, guid: 0771c87a8d9b149399666a0aa52eb4c1, type: 2}

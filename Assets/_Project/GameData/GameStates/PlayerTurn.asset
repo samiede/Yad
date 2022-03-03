@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56fd181bbd594fc7bd9eae84e77eadb, type: 3}
+  m_Name: PlayerTurn
+  m_EditorClassIdentifier: 
+  _anyTransitions: []
+  _transitions:
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 1d2528b00f7b642788f17d29bcb4253b, type: 2}
+    _condition: {fileID: 11400000, guid: f89fcac7d932e4f2d8457c8e76b4de57, type: 2}
+  onTickActions: []
+  onEnterActions:
+  - {fileID: 11400000, guid: 9ee58fce2326d4621a043cc603647aec, type: 2}
+  onExitActions: []

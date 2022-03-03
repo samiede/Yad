@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c160b1e105f34ac69f5fb04fa8a4612, type: 3}
+  m_Name: CH_EnemyState
+  m_EditorClassIdentifier: 
+  _transitions:
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 1157be4d76da14cf2995407262cf3879, type: 2}
+    _condition: {fileID: 11400000, guid: 88bfe968c23104c2baf29af557b8b254, type: 2}
+  onTickActions: []
+  onEnterActions: []
+  onExitActions: []
