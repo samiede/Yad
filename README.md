@@ -1,3 +1,3 @@
 # Yad
 
-Yet another Deckbuilder
+Yet another Deckbuilder. Just for fun.
