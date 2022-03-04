@@ -9,7 +9,7 @@ namespace Deckbuilder
     [CreateAssetMenu(fileName = "New Generic Game Event", menuName = "Events/Generic Game Event")]
     public class GenericGameEvent : ScriptableObject, IGenericGameEvent
     {
-        private List<GenericGameEventListener> _listeners = new List<GenericGameEventListener>();
+        protected List<GenericGameEventListener> _listeners = new List<GenericGameEventListener>();
         
         public void AddListener(GenericGameEventListener listener)
         {

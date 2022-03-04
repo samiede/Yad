@@ -5,9 +5,11 @@ using UnityEngine;
 namespace Deckbuilder
 {
     [CreateAssetMenu(menuName = "CardHandlerActions/HandleCardInteractionAction")]
-
     public class PlayerTurnCardHandlingAction : StateAction
     {
+        [SerializeField] private GameObjectVariable currentSelectedCard;
+        [SerializeField] private GameObjectVariable placeable;
+        [SerializeField] private BoolVariable dragging;
         public override void Execute(float d, Object _manager)
         {
             CardManager manager = _manager as CardManager;
@@ -15,28 +17,28 @@ namespace Deckbuilder
             
             # region hover over card
 
-            if (!manager.Dragging && !manager.Placeable)
+            if (!dragging && !placeable.Value)
             {
                 Ray ray = manager.CardRayProvider.CreateRay();
                 if (Physics.Raycast(ray, out var hit, Mathf.Infinity, 1 << 31))
                 {
 
                     GameObject hoveredCard = hit.transform.gameObject;
-                    if (!manager.CurrentSelectedCard || manager.CurrentSelectedCard.GetInstanceID() != hoveredCard.GetInstanceID())
+                    if (!currentSelectedCard.Value || currentSelectedCard.Value.GetInstanceID() != hoveredCard.GetInstanceID())
                     {
-                        if (manager.CurrentSelectedCard) manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].MouseExitEvent();
-                        manager.CurrentSelectedCard = hoveredCard;
-                        manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].MouseEnterEvent(manager.Dragging);
+                        if (currentSelectedCard.Value) manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseExitEvent();
+                        currentSelectedCard.Value = hoveredCard;
+                        manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseEnterEvent(dragging.Value);
                     }
 
 
                 }
                 else
                 {
-                    if (manager.CurrentSelectedCard)
+                    if (currentSelectedCard.Value)
                     {
-                        manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].MouseExitEvent();
-                        manager.CurrentSelectedCard = null;
+                        manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseExitEvent();
+                        currentSelectedCard.Value = null;
                     }
                 }
             }
@@ -44,25 +46,25 @@ namespace Deckbuilder
             #endregion
     
             #region dragging and casting
-            if (manager.CurrentSelectedCard)
+            if (currentSelectedCard.Value)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    manager.Dragging = true;
-                    manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].OnMouseDownEvent();
+                    dragging.Value = true;
+                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].OnMouseDownEvent();
                     
                 }
                 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].OnMouseUpAsButtonEvent(manager.Dragging);
-                    manager.Dragging = false;
+                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].OnMouseUpAsButtonEvent(dragging.Value);
+                    dragging.Value = false;
                     
                 }
 
-                if (manager.Dragging)
+                if (dragging.Value)
                 {
-                    manager.HandCards[manager.CurrentSelectedCard.GetInstanceID()].MouseDragEvent();
+                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseDragEvent();
 
                 }
             }
@@ -70,18 +72,18 @@ namespace Deckbuilder
 
             #region placeeables
 
-            if (manager.Placeable)
+            if (placeable.Value)
             {
                 Ray groundRay = manager.PlaceableRayProvider.CreateRay();
                 if (Physics.Raycast(groundRay, out var groundHit, Mathf.Infinity, 1 << 3))
                 {
                     GameTile tile = groundHit.transform.GetComponent<GameTile>();
-                    manager.Placeable.SetActive(true);
-                    manager.Placeable.transform.position = tile.SpawnPoint.transform.position;
+                    placeable.Value.SetActive(true);
+                    placeable.Value.transform.position = tile.SpawnPoint.transform.position;
                     
                     if (Input.GetMouseButtonDown(0))
                     {
-                        manager.Placeable = null;
+                        placeable.Value = null;
 
                     }
                 }

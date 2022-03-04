@@ -12,29 +12,17 @@ using UnityEngine.Assertions.Must;
     {
         [Header("Card Data")]
         [SerializeField] private DeckData playerDeck;
-        public DeckData PlayerDeck => playerDeck;
-        private GameObject _currentSelectedCard;
-        public GameObject CurrentSelectedCard
-        {
-            get => _currentSelectedCard;
-            set => _currentSelectedCard = value;
-        }
 
-
-        private Boolean _dragging;
-        public bool Dragging
-        {
-            get => _dragging;
-            set => _dragging = value;
-        }
-
+        [SerializeField] private GameObjectVariable currentlySelectedCard;
+        [SerializeField] private GameObjectVariable placeable;
+        [SerializeField] private BoolVariable dragging;
+        
         [SerializeField] private GameObject cardPrefab;
         [SerializeField] private int maxHandSize = 10;
         [SerializeField] private int initialHandSize = 10;
         private Dictionary<int, Card> _handCards;
         public Dictionary<int, Card> HandCards => _handCards;
         
-        [SerializeField] private GameObjectVariable placeable;
         public GameObject Placeable
         {
             get => placeable.Value;
@@ -66,7 +54,7 @@ using UnityEngine.Assertions.Must;
         {
             for (int i = 0; i < initialHandSize; i++)
             {
-                yield return StartCoroutine(DrawNewCard(0.5f));
+                yield return StartCoroutine(DrawNewCard(0));
 
             }
         }
@@ -83,7 +71,7 @@ using UnityEngine.Assertions.Must;
         public void CheckForStateChange()
         {
             CardHandlerState nextState = currentState.ReturnNextState() as CardHandlerState;
-            if (nextState == currentState) return;
+            if (nextState == currentState || !nextState) return;
             nextState.SetManager(this);
             SetState(nextState);
         }
@@ -114,7 +102,7 @@ using UnityEngine.Assertions.Must;
             GameObject newCard = Instantiate(cardPrefab, spawnPos, Quaternion.identity, cardParent);
             Card card = newCard.GetComponent<Card>();
             
-            card.OnPlayed += OnCardCast;
+            // card.OnPlayed += OnCardCast;
             
             card.SetCamera(cardCamera);
             card.InitializeWithCardData(playerDeck.GetNextCardFromDeck());
@@ -144,8 +132,8 @@ using UnityEngine.Assertions.Must;
                 placeable.Value.SetActive(false);
             }
             Destroy(card.gameObject);
-            _handCards.Remove(_currentSelectedCard.GetInstanceID());
-            _currentSelectedCard = null;
+            _handCards.Remove(currentlySelectedCard.Value.GetInstanceID());
+            currentlySelectedCard.Value = null;
             CalculateAndMove(_handCards.Count);
         }
 
@@ -179,7 +167,6 @@ using UnityEngine.Assertions.Must;
             for (int c = 0; c < _handCards.Count; c++)
             {
                 _handCards.ElementAt(c).Value.transform.localPosition = new Vector3(cardPositions[c].x, cardPositions[c].y, cardPositions[c].z);
-                Debug.Log( new Vector3(cardPositions[c].x, cardPositions[c].y, cardPositions[c].z));
                 _handCards.ElementAt(c).Value.transform.localRotation = cardPositions[c].rotation;
             }
         } 

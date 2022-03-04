@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3052596471565660314}
   - component: {fileID: 1374530639752699640}
   m_Layer: 31
-  m_Name: CardCanvas
+  m_Name: Card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   castThreshold: 0.35
   screenPercentLerp: 0.5
   _isOverThreshold: 0
+  cardPlayedEvent: {fileID: 11400000, guid: d89943ee8b51746c3af1cc9e9d714649, type: 2}
 --- !u!65 &1374530639752699640
 BoxCollider:
   m_ObjectHideFlags: 0

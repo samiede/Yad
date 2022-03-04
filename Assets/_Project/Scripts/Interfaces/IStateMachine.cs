@@ -1,6 +1,6 @@
 namespace Deckbuilder
 {
-    public interface IStateMachine<T>
+    public interface IStateMachine<in T>
     {
         public void CheckForStateChange();
 

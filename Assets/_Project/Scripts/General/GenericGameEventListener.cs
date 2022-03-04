@@ -9,7 +9,7 @@ namespace Deckbuilder
     public class GenericGameEventListener: MonoBehaviour
     {
         
-        [SerializeField] private GenericGameEvent gameEvent;
+        [SerializeField] protected GenericGameEvent gameEvent;
         [SerializeField] public UnityEvent response;
 
         private void OnEnable()

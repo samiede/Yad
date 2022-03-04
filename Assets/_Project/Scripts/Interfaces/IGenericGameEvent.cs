@@ -8,6 +8,7 @@ namespace Deckbuilder
         
         void RemoveListener(GenericGameEventListener listener);
         void RemoveAll();
-    } 
+    }
+    
     
 }

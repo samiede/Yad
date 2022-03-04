@@ -39,9 +39,6 @@ namespace Deckbuilder
         {   
             currentState.Tick(Time.deltaTime);
             
-            // Vector3 start = cc.ViewportToWorldPoint(new Vector3(0, threshold, 4.24f));
-            // Vector3 end = cc.ViewportToWorldPoint(new Vector3(1, threshold, 4.24f));
-            // Debug.DrawLine(start, end);
         }
     }
 }

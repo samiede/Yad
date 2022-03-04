@@ -38,6 +38,8 @@ namespace Deckbuilder
         // private static bool _dragging;
         public bool _isOverThreshold;
 
+        [SerializeField] private SpecificGameEvent<Card> cardPlayedEvent;
+
         public Action<Card> OnPlayed;
         
         private void Start()
@@ -157,13 +159,12 @@ namespace Deckbuilder
                 {
                     // Check if mouse is over large card collider
                     bool insideOriginalCollider = IsInsideOriginalCollider(
-                    _cardCamera.ScreenToWorldPoint(new Vector3(
-                    Input.mousePosition.x, 
-                    Input.mousePosition.y, 
-                    -_cardCamera.transform.position.z))
+                        _cardCamera.ScreenToWorldPoint(new Vector3(
+                        Input.mousePosition.x, 
+                        Input.mousePosition.y, 
+                        -_cardCamera.transform.position.z))
                     );
                     ResetPosition(!insideOriginalCollider);
-                    _dragging = false;
 
                 }
                 
@@ -184,8 +185,8 @@ namespace Deckbuilder
 
         private void Cast()
         {
-            OnPlayed?.Invoke(this);
-            // Destroy(gameObject);
+            // OnPlayed?.Invoke(this);
+            cardPlayedEvent.Raise(this);
         }
 
         public void ResetPosition(bool dismissLargeCard)

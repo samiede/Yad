@@ -847,7 +847,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 63
+    m_Bits: 127
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1121,6 +1121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1672549545}
   - component: {fileID: 1672549546}
+  - component: {fileID: 1672549547}
+  - component: {fileID: 1672549548}
   m_Layer: 0
   m_Name: InteractionManager
   m_TagString: Untagged
@@ -1154,6 +1156,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8a67ef912e84a6bb9fea1200dc9ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
+  currentState: {fileID: 0}
+  interactableRayProvider: {fileID: 1672549547}
+--- !u!114 &1672549547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672549544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62009e328d46c49d7ae3323724ed40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+--- !u!114 &1672549548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672549544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1ce38e64a4159ba6deb07ccb8c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 0}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
+  specificGameEvent: {fileID: 11400000, guid: d89943ee8b51746c3af1cc9e9d714649, type: 2}
+  specificResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672549546}
+        m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
+        m_MethodName: CardPlayed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1697581492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,10 +1338,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeck: {fileID: 11400000, guid: 223394b1999fb411692a43d6de62fd0d, type: 2}
+  currentlySelectedCard: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
+  placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
+  dragging: {fileID: 0}
   cardPrefab: {fileID: 871444750885673232, guid: b72e8e42ea87d43c8a72e45b31bf0c91, type: 3}
   maxHandSize: 10
   initialHandSize: 5
-  placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   cardCamera: {fileID: 1605288753}
   uiCamera: {fileID: 490344032}
   cardsDashboard: {fileID: 1845714257}
