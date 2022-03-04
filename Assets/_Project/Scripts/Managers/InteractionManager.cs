@@ -46,7 +46,7 @@ namespace Deckbuilder
         }
 
 
-        public void CardPlayed()
+        public void CardPlayed(Card card)
         {
             Debug.Log("Played ");
             // TODO this check is not necessary when all cards have placeable data
