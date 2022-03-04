@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 namespace Deckbuilder
 {
-    public class SpecificGameEventListener<T> : GenericGameEventListener
+    public class SpecificGameEventListener<T, TEvent> : GenericGameEventListener where TEvent : UnityEvent<T>
     {
-        [SerializeField] private SpecificGameEvent<T> specificGameEvent;
-        [SerializeField] public UnityEvent<T> specificResponse;
+        [SerializeField] private SpecificGameEvent<T, TEvent> specificGameEvent;
+        [SerializeField] public TEvent specificResponse;
 
         public void OnSpecificEventRaised(T message)
         {

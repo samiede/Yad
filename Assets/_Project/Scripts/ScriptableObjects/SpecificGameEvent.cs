@@ -1,18 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Deckbuilder
 {
-    public class SpecificGameEvent<T> : GenericGameEvent
+    public class SpecificGameEvent<T, TEvent> : GenericGameEvent where TEvent: UnityEvent<T>
     {
-        private List<SpecificGameEventListener<T>> _specificListeners = new List<SpecificGameEventListener<T>>();
+        private List<SpecificGameEventListener<T, TEvent>> _specificListeners = new List<SpecificGameEventListener<T, TEvent>>();
 
-        public void AddSpecificListener(SpecificGameEventListener<T> listener)
+        public void AddSpecificListener(SpecificGameEventListener<T, TEvent> listener)
         {
             _specificListeners.Add(listener);
         }
 
-        public void RemoveSpecificListener(SpecificGameEventListener<T> listener)
+        public void RemoveSpecificListener(SpecificGameEventListener<T, TEvent> listener)
         {
             _specificListeners.Remove(listener);
         }

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Deckbuilder
 {
@@ -38,7 +39,7 @@ namespace Deckbuilder
         // private static bool _dragging;
         public bool _isOverThreshold;
 
-        [SerializeField] private SpecificGameEvent<Card> cardPlayedEvent;
+        [SerializeField] private SpecificGameEvent<Card, CardEvent> cardPlayedEvent;
 
         public Action<Card> OnPlayed;
         

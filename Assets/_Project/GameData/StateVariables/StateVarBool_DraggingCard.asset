@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 929fbaaf7e96d4704a315f3a6cdbfd46, type: 3}
   m_Name: StateVarBool_DraggingCard
   m_EditorClassIdentifier: 
-  _value: 1
+  _value: 0
   _readOnly: 0
   _useDefaultValue: 1
   _raiseWarning: 1
@@ -22,17 +22,5 @@ MonoBehaviour:
   _defaultValue: 0
   _event:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   _genericEvent: {fileID: 0}
