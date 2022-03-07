@@ -69,29 +69,7 @@ namespace Deckbuilder
                 }
             }
             #endregion
-
-            #region placeeables
-
-            if (placeable.Value)
-            {
-                Ray groundRay = manager.PlaceableRayProvider.CreateRay();
-                if (Physics.Raycast(groundRay, out var groundHit, Mathf.Infinity, 1 << 3))
-                {
-                    GameTile tile = groundHit.transform.GetComponent<GameTile>();
-                    placeable.Value.SetActive(true);
-                    placeable.Value.transform.position = tile.SpawnPoint.transform.position;
-                    
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        placeable.Value = null;
-
-                    }
-                }
-                
-                
-            }
             
-            #endregion
             
         }
         

@@ -19,5 +19,6 @@ MonoBehaviour:
     _condition: {fileID: 11400000, guid: f89fcac7d932e4f2d8457c8e76b4de57, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
+  - {fileID: 11400000, guid: dcee41ae8217048ed8756b91c1c5418d, type: 2}
   onEnterActions: []
   onExitActions: []

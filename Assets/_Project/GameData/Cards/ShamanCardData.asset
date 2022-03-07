@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ff0fbb5dbd684335803b1fc50080bf9, type: 3}
-  m_Name: Vulture
+  m_Name: ShamanCardData
   m_EditorClassIdentifier: 
   cardType: {fileID: 11400000, guid: c22f33e0de5a04457ac84ad3188e773c, type: 2}
   properties:
-  - stringValue: Cool-Ass Vulture
+  - stringValue: Some Shaman
     texture: {fileID: 0}
     sprite: {fileID: 0}
     intValue: 0
@@ -45,5 +45,5 @@ MonoBehaviour:
     intValue: 5
     element: {fileID: 11400000, guid: 67c28f77861b2476ca99e483f3508780, type: 2}
   cardMaterial: {fileID: 2100000, guid: 761c6f8a56ef347fa8580b51ede99c81, type: 2}
-  description: It's gonna peck your heart out!
+  description: Wululululu!
   spawnPlaceablesData: {fileID: 11400000, guid: c639e7a3709c14ead868101bd2a6776f, type: 2}

@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8679ccf7792413a9adb579e8524269c, type: 3}
-  m_Name: IM_Turn Interaction Action
+  m_Script: {fileID: 11500000, guid: 9a2a7b40f7b1d4cc38d9bd17f0fa641c, type: 3}
+  m_Name: New Player Turn Placeables Action
   m_EditorClassIdentifier: 
-  currentInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
-  layerMask:
+  placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
+  groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 8
+  cardPositionChosen: {fileID: 11400000, guid: 13fe1a8754d0345a3a63e73511fbe0c4, type: 2}

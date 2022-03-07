@@ -1495,8 +1495,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1649778818741624528}
   - component: {fileID: 1704336425551477948}
+  - component: {fileID: 2781892496682948328}
+  - component: {fileID: 4418425326947804370}
   m_Layer: 6
-  m_Name: Character_Vulture
+  m_Name: Character_Shaman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1546,6 +1548,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2781892496682948328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653467828751809282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e8cccb26bdc49d9ba33152b0e2fe0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &4418425326947804370
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653467828751809282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6281743, y: 1.8525653, z: 0.64428544}
+  m_Center: {x: 0.015124559, y: 1.0086958, z: -0.06324667}
 --- !u!1 &1653670105383444638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,8 +2166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1656066402433314230}
   - component: {fileID: 1662847777020220686}
-  - component: {fileID: 7546171474275436427}
-  - component: {fileID: 1771762055313658759}
   m_Layer: 6
   m_Name: Character_SpiritDemon
   m_TagString: Untagged
@@ -2263,31 +2288,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0.9164126, z: -0.06324667}
     m_Extent: {x: 1.0224477, y: 1.0185659, z: 0.32214272}
   m_DirtyAABB: 0
---- !u!65 &7546171474275436427
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653806589358500746}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6281743, y: 1.8525653, z: 0.64428544}
-  m_Center: {x: 0.015124559, y: 1.0086958, z: -0.06324667}
---- !u!114 &1771762055313658759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653806589358500746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98e8cccb26bdc49d9ba33152b0e2fe0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1653828444013025686
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 993913a54530d4039872776f8286f7de, type: 3}
-  m_Name: Vulture
+  m_Name: ShamanPlaceableData
   m_EditorClassIdentifier: 
   Type: 0
-  placeholderPrefab: {fileID: 1653467828751809282, guid: 7f0d198a8027e4ae7966a3a431aaa32e, type: 3}
+  placeholderPrefab: {fileID: 3017489252122525839, guid: 852cf4988c9824f4d9e2ddcbf6fe27cf, type: 3}
   prefab: {fileID: 1653467828751809282, guid: 7f0d198a8027e4ae7966a3a431aaa32e, type: 3}
   attackType: 0
   targetType: 0

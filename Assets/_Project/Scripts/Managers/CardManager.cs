@@ -14,7 +14,6 @@ using UnityEngine.Assertions.Must;
         [SerializeField] private DeckData playerDeck;
 
         [SerializeField] private GameObjectVariable currentlySelectedCard;
-        [SerializeField] private GameObjectVariable placeable;
         [SerializeField] private BoolVariable dragging;
         
         [SerializeField] private GameObject cardPrefab;
@@ -23,13 +22,6 @@ using UnityEngine.Assertions.Must;
         private Dictionary<int, Card> _handCards;
         public Dictionary<int, Card> HandCards => _handCards;
         
-        public GameObject Placeable
-        {
-            get => placeable.Value;
-            set => placeable.Value = value;
-        }
-        
-
         [Header("UI Elements")] 
         [SerializeField] private Camera cardCamera;
         [SerializeField] private Camera uiCamera;
@@ -42,8 +34,7 @@ using UnityEngine.Assertions.Must;
         [SerializeField] private MouseScreenRayProvider  _cardRayProvider;
         public MouseScreenRayProvider CardRayProvider => _cardRayProvider;
         
-        [SerializeField] private MouseScreenRayProvider  _placeableRayProvider;
-        public MouseScreenRayProvider PlaceableRayProvider => _placeableRayProvider;
+
         
         
         [SerializeField] private CardHandlerState startState;
@@ -122,15 +113,8 @@ using UnityEngine.Assertions.Must;
         }
         
 
-        private void OnCardCast(Card card)
+        public void OnCardCast(Card card)
         {
-            Debug.Log("Played " + card.cardData.name);
-            // TODO this check is not necessary when all cards have placeable data
-            if (card.cardData.spawnPlaceablesData)
-            {
-                placeable.Value = Instantiate(card.cardData.spawnPlaceablesData.placeholderPrefab, new Vector3(0, 0.5f), Quaternion.identity);
-                placeable.Value.SetActive(false);
-            }
             Destroy(card.gameObject);
             _handCards.Remove(currentlySelectedCard.Value.GetInstanceID());
             currentlySelectedCard.Value = null;

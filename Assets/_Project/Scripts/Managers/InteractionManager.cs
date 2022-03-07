@@ -7,14 +7,17 @@ namespace Deckbuilder
     public class InteractionManager : MonoBehaviour, IStateMachine<InteractionManagerState>
     {
                 
+        [SerializeField] private GameObjectVariable placeable;
+        [SerializeField] private CardGameEvent cardPlayed;
         
         [SerializeField] private InteractionManagerState startState;
         [SerializeField] private InteractionManagerState currentState;
         [SerializeField] public MouseScreenRayProvider  interactableRayProvider;
-        
+
         public Dictionary<int, IInteractable> playerInteractables = new Dictionary<int, IInteractable>();
         public Dictionary<int, IInteractable> enemyInteractables = new Dictionary<int, IInteractable>();
 
+        private Card currentCastCard;
 
 
         void Start()
@@ -45,20 +48,38 @@ namespace Deckbuilder
             currentState.OnEnter();
         }
 
+        public void CardCast(Card card)
+        {
+            currentCastCard = card;
+            if (card.cardData.spawnPlaceablesData)
+            {
+                placeable.Value = Instantiate(card.cardData.spawnPlaceablesData.placeholderPrefab, new Vector3(0, 0.5f), Quaternion.identity);
+                placeable.Value.SetActive(false);
+            }
+            else
+            {
+                cardPlayed.Raise(card);
+            }
+
+        }
+
 
         public void CardPlayed(Card card)
         {
-            Debug.Log("Played ");
-            // TODO this check is not necessary when all cards have placeable data
-            // if (card.cardData.spawnPlaceablesData)
-            // {
-            //     placeable.Value = Instantiate(card.cardData.spawnPlaceablesData.placeholderPrefab, new Vector3(0, 0.5f), Quaternion.identity);
-            //     placeable.Value.SetActive(false);
-            // }
-            // Destroy(card.gameObject);
-            // _handCards.Remove(currentlySelectedCard.Value.GetInstanceID());
-            // currentlySelectedCard.Value = null;
-            // CalculateAndMove(_handCards.Count);
+            // TODO very ugly, maybe save the current card in GO as well!?!?
+            if (!card) card = currentCastCard;
+            if (card.cardData.spawnPlaceablesData)
+            {
+                GameObject go = Instantiate(card.cardData.spawnPlaceablesData.prefab, placeable.Value.transform.position, Quaternion.identity);
+                IInteractable interactable = go.GetComponent<IInteractable>();
+                interactable.Initialize(card.cardData.spawnPlaceablesData);
+                playerInteractables.Add(go.GetInstanceID(), interactable);
+                Destroy(placeable.Value);
+                
+                placeable.Value = null;
+                currentCastCard = null;
+            }
+
         }
     }
 }

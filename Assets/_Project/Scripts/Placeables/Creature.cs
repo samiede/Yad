@@ -6,7 +6,7 @@ namespace Deckbuilder
 {
     public class Creature : MonoBehaviour, IInteractable
     {
-
+        private PlaceableData placeableData;
 
         public void Select()
         {
@@ -16,6 +16,11 @@ namespace Deckbuilder
         public void Deselect()
         {
             Debug.Log("Deselect");
+        }
+
+        public void Initialize(PlaceableData data)
+        {
+            placeableData = data;
         }
     }
 }

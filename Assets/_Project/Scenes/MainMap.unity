@@ -1123,6 +1123,7 @@ GameObject:
   - component: {fileID: 1672549546}
   - component: {fileID: 1672549547}
   - component: {fileID: 1672549548}
+  - component: {fileID: 1672549549}
   m_Layer: 0
   m_Name: InteractionManager
   m_TagString: Untagged
@@ -1156,6 +1157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8a67ef912e84a6bb9fea1200dc9ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
+  cardPlayed: {fileID: 11400000, guid: d89943ee8b51746c3af1cc9e9d714649, type: 2}
   startState: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
   currentState: {fileID: 0}
   interactableRayProvider: {fileID: 1672549547}
@@ -1194,11 +1197,43 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672549546}
         m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
-        m_MethodName: CardPlayed
-        m_Mode: 2
+        m_MethodName: CardCast
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: Deckbuilder.Card, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1672549549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672549544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1ce38e64a4159ba6deb07ccb8c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 0}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
+  specificGameEvent: {fileID: 11400000, guid: 13fe1a8754d0345a3a63e73511fbe0c4, type: 2}
+  specificResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672549546}
+        m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
+        m_MethodName: CardPlayed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1250,6 +1285,7 @@ GameObject:
   - component: {fileID: 1766343214}
   - component: {fileID: 1766343212}
   - component: {fileID: 1766343213}
+  - component: {fileID: 1766343216}
   m_Layer: 3
   m_Name: CardManager
   m_TagString: Untagged
@@ -1339,7 +1375,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeck: {fileID: 11400000, guid: 223394b1999fb411692a43d6de62fd0d, type: 2}
   currentlySelectedCard: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
-  placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   dragging: {fileID: 0}
   cardPrefab: {fileID: 871444750885673232, guid: b72e8e42ea87d43c8a72e45b31bf0c91, type: 3}
   maxHandSize: 10
@@ -1351,9 +1386,40 @@ MonoBehaviour:
   cardMargin: 0.15
   cardParent: {fileID: 1595544475}
   _cardRayProvider: {fileID: 1766343214}
-  _placeableRayProvider: {fileID: 1766343212}
   startState: {fileID: 11400000, guid: 1157be4d76da14cf2995407262cf3879, type: 2}
   currentState: {fileID: 0}
+--- !u!114 &1766343216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766343210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6f1ce38e64a4159ba6deb07ccb8c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 0}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
+  specificGameEvent: {fileID: 11400000, guid: d89943ee8b51746c3af1cc9e9d714649, type: 2}
+  specificResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1766343215}
+        m_TargetAssemblyTypeName: Deckbuilder.CardManager, Assembly-CSharp
+        m_MethodName: OnCardCast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1845714256
 GameObject:
   m_ObjectHideFlags: 0
