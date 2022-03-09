@@ -13,6 +13,7 @@ namespace Deckbuilder
         [SerializeField] private GameObjectVariable placeable;
         [SerializeField] private LayerMask groundMask;
         [SerializeField] private CardGameEvent cardPositionChosen;
+        [SerializeField] private CardVariable currentCastCard;
 
         public override void Execute(float d, Object _manager)
         {
@@ -26,13 +27,14 @@ namespace Deckbuilder
                 Ray groundRay = manager.interactableRayProvider.CreateRay();
                 if (Physics.Raycast(groundRay, out var groundHit, Mathf.Infinity, groundMask))
                 {
+                    // TODO get this from dictionary instead
                     GameTile tile = groundHit.transform.GetComponent<GameTile>();
                     placeable.Value.SetActive(true);
                     placeable.Value.transform.position = tile.SpawnPoint.transform.position;
                     
                     if (Input.GetMouseButtonDown(0))
                     {
-                        cardPositionChosen.Raise(null);
+                        cardPositionChosen.Raise(currentCastCard.Value);
                     }
                 }
             }

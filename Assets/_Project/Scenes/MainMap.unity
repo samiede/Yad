@@ -383,6 +383,8 @@ GameObject:
   m_Component:
   - component: {fileID: 621369741}
   - component: {fileID: 621369742}
+  - component: {fileID: 621369743}
+  - component: {fileID: 621369744}
   m_Layer: 0
   m_Name: BoardManager
   m_TagString: Untagged
@@ -418,6 +420,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldPrefab: {fileID: 1808801373870274188, guid: f7119f166ba63413ea201312a796fb05, type: 3}
   widthHeight: {x: 12, y: 12}
+  allInteractables: {fileID: 11400000, guid: 353081432974740b7af570b99a9ae9e5, type: 2}
+  currentInteractabe: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+--- !u!114 &621369743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621369740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe62009e328d46c49d7ae3323724ed40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 963194227}
+--- !u!114 &621369744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621369740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34026665efef4b86b042f9cd49fc233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 621369742}
+        m_TargetAssemblyTypeName: Deckbuilder.MapGenerator, Assembly-CSharp
+        m_MethodName: HighlightTileWithInteractable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1204,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
-  cardPlayed: {fileID: 11400000, guid: d89943ee8b51746c3af1cc9e9d714649, type: 2}
+  cardPlayed: {fileID: 11400000, guid: 13fe1a8754d0345a3a63e73511fbe0c4, type: 2}
+  currentCastCard: {fileID: 11400000, guid: 8dc6daef0ce2943898421cd12f7130f5, type: 2}
+  playerInteractables: {fileID: 11400000, guid: eae7d8256ca32486482ced7608a070a5, type: 2}
+  enemyInteractables: {fileID: 11400000, guid: e286e4aa100284e85a35fd19a601d0a9, type: 2}
+  allInteractables: {fileID: 11400000, guid: 353081432974740b7af570b99a9ae9e5, type: 2}
   startState: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
   currentState: {fileID: 0}
   interactableRayProvider: {fileID: 1672549547}
@@ -1374,8 +1424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeck: {fileID: 11400000, guid: 223394b1999fb411692a43d6de62fd0d, type: 2}
-  currentlySelectedCard: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
-  dragging: {fileID: 0}
+  currentlySelectedCardObject: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
+  currentCastCard: {fileID: 11400000, guid: 8dc6daef0ce2943898421cd12f7130f5, type: 2}
   cardPrefab: {fileID: 871444750885673232, guid: b72e8e42ea87d43c8a72e45b31bf0c91, type: 3}
   maxHandSize: 10
   initialHandSize: 5

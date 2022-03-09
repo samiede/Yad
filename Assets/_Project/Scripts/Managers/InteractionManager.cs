@@ -9,15 +9,19 @@ namespace Deckbuilder
                 
         [SerializeField] private GameObjectVariable placeable;
         [SerializeField] private CardGameEvent cardPlayed;
-        
+        [SerializeField] private CardVariable currentCastCard;
+
+        [SerializeField] private InteractableDictVariable playerInteractables;
+        [SerializeField] private InteractableDictVariable enemyInteractables;
+        [SerializeField] private InteractableDictVariable allInteractables;
+
         [SerializeField] private InteractionManagerState startState;
         [SerializeField] private InteractionManagerState currentState;
         [SerializeField] public MouseScreenRayProvider  interactableRayProvider;
 
-        public Dictionary<int, IInteractable> playerInteractables = new Dictionary<int, IInteractable>();
-        public Dictionary<int, IInteractable> enemyInteractables = new Dictionary<int, IInteractable>();
+        // public Dictionary<int, IInteractable> playerInteractables = new Dictionary<int, IInteractable>();
+        // public Dictionary<int, IInteractable> enemyInteractables = new Dictionary<int, IInteractable>();
 
-        private Card currentCastCard;
 
 
         void Start()
@@ -50,7 +54,7 @@ namespace Deckbuilder
 
         public void CardCast(Card card)
         {
-            currentCastCard = card;
+            
             if (card.cardData.spawnPlaceablesData)
             {
                 placeable.Value = Instantiate(card.cardData.spawnPlaceablesData.placeholderPrefab, new Vector3(0, 0.5f), Quaternion.identity);
@@ -66,18 +70,22 @@ namespace Deckbuilder
 
         public void CardPlayed(Card card)
         {
-            // TODO very ugly, maybe save the current card in GO as well!?!?
-            if (!card) card = currentCastCard;
+            Debug.Log("Played");
             if (card.cardData.spawnPlaceablesData)
             {
                 GameObject go = Instantiate(card.cardData.spawnPlaceablesData.prefab, placeable.Value.transform.position, Quaternion.identity);
                 IInteractable interactable = go.GetComponent<IInteractable>();
                 interactable.Initialize(card.cardData.spawnPlaceablesData);
+                interactable.PlaySpawnClip();
+                
                 playerInteractables.Add(go.GetInstanceID(), interactable);
+                allInteractables.Add(go.GetInstanceID(), interactable);
+                
                 Destroy(placeable.Value);
                 
                 placeable.Value = null;
-                currentCastCard = null;
+                // TODO Does this have to happen in card manager? Would mean another event
+                currentCastCard.Value = null;
             }
 
         }

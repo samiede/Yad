@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c09d9c5072d4f1086760ae999c8a50, type: 3}
   m_Name: CH_Player Turn Card Handling Action
   m_EditorClassIdentifier: 
-  currentSelectedCard: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
+  currentSelectedCardObject: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
   placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   dragging: {fileID: 11400000, guid: e45d05923fa2b4b33b71d7598078ae8f, type: 2}

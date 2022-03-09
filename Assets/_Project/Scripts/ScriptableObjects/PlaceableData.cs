@@ -19,7 +19,7 @@ namespace Deckbuilder
         public float attackDamage = 1f;
         public float attackRange = 1f;
         public float hitPoints = 10f;
-        public AudioClip spawnClip, attackClip, dieClip;
+        public AudioClip spawnClip, attackClip, dieClip, selectClip;
 
         [Header("Units")] 
         public float moveRange = 2f;

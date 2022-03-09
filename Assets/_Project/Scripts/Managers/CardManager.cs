@@ -13,8 +13,8 @@ using UnityEngine.Assertions.Must;
         [Header("Card Data")]
         [SerializeField] private DeckData playerDeck;
 
-        [SerializeField] private GameObjectVariable currentlySelectedCard;
-        [SerializeField] private BoolVariable dragging;
+        [SerializeField] private GameObjectVariable currentlySelectedCardObject;
+        [SerializeField] private CardVariable currentCastCard;
         
         [SerializeField] private GameObject cardPrefab;
         [SerializeField] private int maxHandSize = 10;
@@ -93,8 +93,6 @@ using UnityEngine.Assertions.Must;
             GameObject newCard = Instantiate(cardPrefab, spawnPos, Quaternion.identity, cardParent);
             Card card = newCard.GetComponent<Card>();
             
-            // card.OnPlayed += OnCardCast;
-            
             card.SetCamera(cardCamera);
             card.InitializeWithCardData(playerDeck.GetNextCardFromDeck());
             
@@ -115,9 +113,10 @@ using UnityEngine.Assertions.Must;
 
         public void OnCardCast(Card card)
         {
+            currentCastCard.Value = card;
             Destroy(card.gameObject);
-            _handCards.Remove(currentlySelectedCard.Value.GetInstanceID());
-            currentlySelectedCard.Value = null;
+            _handCards.Remove(currentlySelectedCardObject.Value.GetInstanceID());
+            currentlySelectedCardObject.Value = null;
             CalculateAndMove(_handCards.Count);
         }
 

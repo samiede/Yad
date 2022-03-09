@@ -8,5 +8,9 @@ namespace Deckbuilder
         public void Deselect();
 
         public void Initialize(PlaceableData data);
+
+        public void PlaySpawnClip();
+
+        public PlaceableData GetData();
     }
 }

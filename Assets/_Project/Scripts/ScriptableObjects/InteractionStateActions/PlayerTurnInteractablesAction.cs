@@ -8,6 +8,9 @@ namespace Deckbuilder
 
         [SerializeField] private GameObjectVariable placeable;
         [SerializeField] private GameObjectVariable currentInteractable;
+        [SerializeField] private InteractableDictVariable playerInteractables;
+        [SerializeField] private InteractableDictVariable enemyInteractables;
+        [SerializeField] private InteractableDictVariable allInteractables;
         [SerializeField] private LayerMask interactableMask;
 
         public override void Execute(float d, Object _manager)
@@ -25,19 +28,20 @@ namespace Deckbuilder
                     GameObject clickedInteractable = hit.transform.gameObject;
                     if (!placeable.Value && (!currentInteractable.Value || currentInteractable.Value.GetInstanceID() != clickedInteractable.GetInstanceID()))
                     {
-                        if (currentInteractable.Value) manager.playerInteractables[currentInteractable.Value.GetInstanceID()].Deselect();
+                        if (currentInteractable.Value) allInteractables.Get(currentInteractable.Value.GetInstanceID()).Deselect();
                         currentInteractable.Value = clickedInteractable;
                         
-                        if (manager.playerInteractables.ContainsKey(currentInteractable.Value.GetInstanceID()))
-                        {
-                            manager.playerInteractables[currentInteractable.Value.GetInstanceID()].Select();
-                        }
+                        allInteractables.Get(currentInteractable.Value.GetInstanceID())?.Select();
+                        
                     }
                     
                 }
                 else
                 {
-                    if (currentInteractable.Value) manager.playerInteractables[currentInteractable.Value.GetInstanceID()].Deselect();
+                    if (currentInteractable.Value)
+                    {
+                        allInteractables.Get(currentInteractable.Value.GetInstanceID()).Deselect();
+                    }
                     currentInteractable.Value = null;
                 }
             }

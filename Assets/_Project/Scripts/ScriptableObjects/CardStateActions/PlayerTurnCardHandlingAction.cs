@@ -7,7 +7,7 @@ namespace Deckbuilder
     [CreateAssetMenu(menuName = "CardHandlerActions/HandleCardInteractionAction")]
     public class PlayerTurnCardHandlingAction : StateAction
     {
-        [SerializeField] private GameObjectVariable currentSelectedCard;
+        [SerializeField] private GameObjectVariable currentSelectedCardObject;
         [SerializeField] private GameObjectVariable placeable;
         [SerializeField] private BoolVariable dragging;
         public override void Execute(float d, Object _manager)
@@ -24,21 +24,21 @@ namespace Deckbuilder
                 {
 
                     GameObject hoveredCard = hit.transform.gameObject;
-                    if (!currentSelectedCard.Value || currentSelectedCard.Value.GetInstanceID() != hoveredCard.GetInstanceID())
+                    if (!currentSelectedCardObject.Value || currentSelectedCardObject.Value.GetInstanceID() != hoveredCard.GetInstanceID())
                     {
-                        if (currentSelectedCard.Value) manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseExitEvent();
-                        currentSelectedCard.Value = hoveredCard;
-                        manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseEnterEvent(dragging.Value);
+                        if (currentSelectedCardObject.Value) manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].MouseExitEvent();
+                        currentSelectedCardObject.Value = hoveredCard;
+                        manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].MouseEnterEvent(dragging.Value);
                     }
 
 
                 }
                 else
                 {
-                    if (currentSelectedCard.Value)
+                    if (currentSelectedCardObject.Value)
                     {
-                        manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseExitEvent();
-                        currentSelectedCard.Value = null;
+                        manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].MouseExitEvent();
+                        currentSelectedCardObject.Value = null;
                     }
                 }
             }
@@ -46,25 +46,25 @@ namespace Deckbuilder
             #endregion
     
             #region dragging and casting
-            if (currentSelectedCard.Value)
+            if (currentSelectedCardObject.Value)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     dragging.Value = true;
-                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].OnMouseDownEvent();
+                    manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].OnMouseDownEvent();
                     
                 }
                 
                 if (Input.GetMouseButtonUp(0))
                 {
-                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].OnMouseUpAsButtonEvent(dragging.Value);
+                    manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].OnMouseUpAsButtonEvent(dragging.Value);
                     dragging.Value = false;
                     
                 }
 
                 if (dragging.Value)
                 {
-                    manager.HandCards[currentSelectedCard.Value.GetInstanceID()].MouseDragEvent();
+                    manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].MouseDragEvent();
 
                 }
             }

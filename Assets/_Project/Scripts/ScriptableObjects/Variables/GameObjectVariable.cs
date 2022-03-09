@@ -10,7 +10,7 @@ namespace Deckbuilder
     public class GameObjectEvent : UnityEvent<GameObject> { }
     
     [CreateAssetMenu(
-        fileName = "BoolVariable.asset",
+        fileName = "GOVariable.asset",
         menuName = "Variables/New Variable_"+ "GameObject",
         order = 5)]
     public sealed class GameObjectVariable: BaseVariable<GameObject, GameObjectEvent>
