@@ -18,8 +18,6 @@ namespace Deckbuilder
             CardManager manager = _manager as CardManager;
             if (!manager) return;
             
-            Debug.Log(manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()]);
-
             manager.HandCards[currentSelectedCardObject.Value.GetInstanceID()].MouseDragEvent();
             
             if (Input.GetMouseButtonUp(0))

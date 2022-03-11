@@ -13,23 +13,22 @@ namespace Deckbuilder
         [SerializeField] private TEvent _event = default(TEvent);
         [SerializeField] private GenericGameEvent _genericEvent;
 
-        private Dictionary<Tk, Tv> dict = new Dictionary<Tk, Tv>();
+        public Dictionary<Tk, Tv> Dict { get; } = new Dictionary<Tk, Tv>();
 
-        
         public void AddSilent(Tk addKey, Tv addVal)
         {
-            dict.Add(addKey, addVal);
+            Dict.Add(addKey, addVal);
         }
 
         public void Add(Tk addKey, Tv addVal)
         {
-            dict.Add(addKey, addVal);
+            Dict.Add(addKey, addVal);
             Raise(addVal);
         }
 
         public Tv Get(Tk val)
         {
-            dict.TryGetValue(val, out var retVal);
+            Dict.TryGetValue(val, out var retVal);
             return retVal;
         }
         

@@ -22,7 +22,9 @@ namespace Deckbuilder
         public AudioClip spawnClip, attackClip, dieClip, selectClip;
 
         [Header("Units")] 
-        public float moveRange = 2f;
+        public int moveRange = 2;
+
+        // TODO this is getting fishy, also add modifiers here
 
         [Header("Spells and Limited Effects")] 
         public int lifetime = 1;
@@ -31,6 +33,8 @@ namespace Deckbuilder
         public float damage;
         public float percentDamageReductionPerRound = 1f;
         public Vector2Int areaOfEffect = new Vector2Int(1, 1);
+        
+        
 
 
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a2a7b40f7b1d4cc38d9bd17f0fa641c, type: 3}
-  m_Name: IM_PlayerTurn_Placeables Action
+  m_Name: IM_Placeables Action
   m_EditorClassIdentifier: 
   placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   groundMask:

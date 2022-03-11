@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d5ba6507a22400cbce8b4e80a2e65d, type: 3}
+  m_Name: IM_Player Idle Action
+  m_EditorClassIdentifier: 
+  currentInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  playerInteractables: {fileID: 11400000, guid: eae7d8256ca32486482ced7608a070a5, type: 2}
+  enemyInteractables: {fileID: 11400000, guid: e286e4aa100284e85a35fd19a601d0a9, type: 2}
+  allInteractables: {fileID: 11400000, guid: 353081432974740b7af570b99a9ae9e5, type: 2}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 64

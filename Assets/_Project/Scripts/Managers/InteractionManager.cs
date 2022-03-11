@@ -66,8 +66,7 @@ namespace Deckbuilder
             }
 
         }
-
-
+        
         public void CardPlayed(Card card)
         {
             Debug.Log("Played");
@@ -88,6 +87,14 @@ namespace Deckbuilder
                 currentCastCard.Value = null;
             }
 
+        }
+
+        public void ResetInteractables()
+        {
+            foreach (var interactable in playerInteractables.Dict)
+            {
+                interactable.Value.StartTurnReset();
+            }
         }
     }
 }

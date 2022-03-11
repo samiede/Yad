@@ -17,8 +17,14 @@ MonoBehaviour:
   - from: {fileID: 11400000}
     to: {fileID: 11400000, guid: 5fbb29538ae974d36a324bf2693554d2, type: 2}
     _condition: {fileID: 11400000, guid: f89fcac7d932e4f2d8457c8e76b4de57, type: 2}
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
+    _condition: {fileID: 11400000, guid: 9dd7a28887edb43c6b31bd26532bddbe, type: 2}
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: f7091146419584ec4ac52aa67dbfd250, type: 2}
+    _condition: {fileID: 11400000, guid: ae074ca4b4d9a493d90c86699b22fbe3, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
-  - {fileID: 11400000, guid: dcee41ae8217048ed8756b91c1c5418d, type: 2}
+  - {fileID: 11400000, guid: 1e0393fd19a1b4a4e892b342f3809ba7, type: 2}
   onEnterActions: []
   onExitActions: []

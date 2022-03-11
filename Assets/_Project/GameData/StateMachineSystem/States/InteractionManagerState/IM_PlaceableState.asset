@@ -15,10 +15,9 @@ MonoBehaviour:
   _anyTransitions: []
   _transitions:
   - from: {fileID: 11400000}
-    to: {fileID: 11400000, guid: 5fbb29538ae974d36a324bf2693554d2, type: 2}
-    _condition: {fileID: 11400000, guid: f89fcac7d932e4f2d8457c8e76b4de57, type: 2}
+    to: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
+    _condition: {fileID: 11400000, guid: c6590ff12a0504a4787ce4360353acb4, type: 2}
   onTickActions:
-  - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
   - {fileID: 11400000, guid: dcee41ae8217048ed8756b91c1c5418d, type: 2}
   onEnterActions: []
   onExitActions: []

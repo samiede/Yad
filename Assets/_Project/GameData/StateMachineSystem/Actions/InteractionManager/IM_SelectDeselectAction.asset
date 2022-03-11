@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b8679ccf7792413a9adb579e8524269c, type: 3}
-  m_Name: IM_PlayerTurn_InteractablesAction
+  m_Name: IM_SelectDeselectAction
   m_EditorClassIdentifier: 
   placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   currentInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}

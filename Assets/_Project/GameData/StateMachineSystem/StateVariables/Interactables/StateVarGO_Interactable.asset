@@ -23,4 +23,4 @@ MonoBehaviour:
   _event:
     m_PersistentCalls:
       m_Calls: []
-  _genericEvent: {fileID: 0}
+  _genericEvent: {fileID: 11400000, guid: 90ace573f3da64a73917e0e286059be9, type: 2}

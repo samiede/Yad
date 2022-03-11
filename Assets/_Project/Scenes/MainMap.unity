@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 621369742}
   - component: {fileID: 621369743}
   - component: {fileID: 621369744}
+  - component: {fileID: 621369745}
   m_Layer: 0
   m_Name: BoardManager
   m_TagString: Untagged
@@ -421,7 +422,7 @@ MonoBehaviour:
   fieldPrefab: {fileID: 1808801373870274188, guid: f7119f166ba63413ea201312a796fb05, type: 3}
   widthHeight: {x: 12, y: 12}
   allInteractables: {fileID: 11400000, guid: 353081432974740b7af570b99a9ae9e5, type: 2}
-  currentInteractabe: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  currentInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
 --- !u!114 &621369743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,6 +451,34 @@ MonoBehaviour:
   _previouslyRegisteredEvent: {fileID: 0}
   _event: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
   _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 621369742}
+        m_TargetAssemblyTypeName: Deckbuilder.MapGenerator, Assembly-CSharp
+        m_MethodName: HighlightTileWithInteractable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &621369745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621369740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ec779c19048829bdadfac511a37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 4bd8b2da0840144a2baeae345cec91bc, type: 2}
+  response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 621369742}
@@ -1170,6 +1199,8 @@ GameObject:
   - component: {fileID: 1672549547}
   - component: {fileID: 1672549548}
   - component: {fileID: 1672549549}
+  - component: {fileID: 1672549550}
+  - component: {fileID: 1672549551}
   m_Layer: 0
   m_Name: InteractionManager
   m_TagString: Untagged
@@ -1281,6 +1312,62 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
         m_MethodName: CardPlayed
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1672549550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672549544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ec779c19048829bdadfac511a37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 90ace573f3da64a73917e0e286059be9, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672549546}
+        m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
+        m_MethodName: CheckForStateChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1672549551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672549544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a723ec779c19048829bdadfac511a37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 21cb381bf78b84958b608b0964131b7c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1672549546}
+        m_TargetAssemblyTypeName: Deckbuilder.InteractionManager, Assembly-CSharp
+        m_MethodName: ResetInteractables
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

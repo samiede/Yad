@@ -4,6 +4,9 @@ namespace Deckbuilder
 {
     public interface IInteractable
     {
+        public PlaceableData PlaceableData { get; }
+        public int RemainingMovement { get; }
+        
         public void Select();
         public void Deselect();
 
@@ -11,6 +14,10 @@ namespace Deckbuilder
 
         public void PlaySpawnClip();
 
-        public PlaceableData GetData();
+        public void Move(int distance);
+
+        public void StartTurnReset();
+
+
     }
 }
