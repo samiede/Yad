@@ -9,15 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c160b1e105f34ac69f5fb04fa8a4612, type: 3}
-  m_Name: CH_DraggingState
+  m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
+  m_Name: IM_BlockingState
   m_EditorClassIdentifier: 
   _anyTransitions: []
   _transitions:
   - from: {fileID: 11400000}
-    to: {fileID: 11400000, guid: 21818dfdc0af04e789dcb3723767012d, type: 2}
+    to: {fileID: 11400000, guid: 5fbb29538ae974d36a324bf2693554d2, type: 2}
     _condition: {fileID: 11400000, guid: f89fcac7d932e4f2d8457c8e76b4de57, type: 2}
   onTickActions:
-  - {fileID: 11400000, guid: cdd4ab72897d64788a9d7b540e548ca1, type: 2}
+  - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
+  - {fileID: 11400000, guid: dcee41ae8217048ed8756b91c1c5418d, type: 2}
   onEnterActions: []
   onExitActions: []

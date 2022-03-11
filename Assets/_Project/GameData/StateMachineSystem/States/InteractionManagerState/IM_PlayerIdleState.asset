@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
-  m_Name: IM_PlayerTurn
+  m_Name: IM_PlayerIdleState
   m_EditorClassIdentifier: 
   _anyTransitions: []
   _transitions:

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c160b1e105f34ac69f5fb04fa8a4612, type: 3}
+  m_Name: CH_CardDraggingState
+  m_EditorClassIdentifier: 
+  _anyTransitions: []
+  _transitions:
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: b676fc726f4484ae0b61d20005cc677b, type: 2}
+    _condition: {fileID: 11400000, guid: 9d0cf4c45c0a54d1ca4d0dbdd8aeb800, type: 2}
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 1157be4d76da14cf2995407262cf3879, type: 2}
+    _condition: {fileID: 11400000, guid: c6590ff12a0504a4787ce4360353acb4, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 7356f674622414008bc9f153b82feef0, type: 2}
+  onEnterActions: []
+  onExitActions: []
