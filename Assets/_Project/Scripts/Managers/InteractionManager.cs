@@ -19,11 +19,6 @@ namespace Deckbuilder
         [SerializeField] private InteractionManagerState currentState;
         [SerializeField] public MouseScreenRayProvider  interactableRayProvider;
 
-        // public Dictionary<int, IInteractable> playerInteractables = new Dictionary<int, IInteractable>();
-        // public Dictionary<int, IInteractable> enemyInteractables = new Dictionary<int, IInteractable>();
-
-
-
         void Start()
         {
             currentState = startState;
@@ -35,7 +30,6 @@ namespace Deckbuilder
         {
             currentState.Tick(Time.deltaTime);
         }
-
 
         public void CheckForStateChange()
         {

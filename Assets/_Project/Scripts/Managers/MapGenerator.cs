@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Deckbuilder
 {
@@ -15,9 +16,12 @@ namespace Deckbuilder
         private Transform _transform;
         
         [SerializeField] private InteractableDictVariable allInteractables;
+        [SerializeField] private InteractableDictVariable enemyInteractables;
+
         [SerializeField] private GameObjectVariable currentInteractable;
 
-
+        [SerializeField] private GameObject golemPrefab;
+        
         private void Awake()
         {
             int x = Mathf.Max(1, widthHeight.x % 2 == 0 ? widthHeight.x : widthHeight.x - 1);
@@ -32,6 +36,21 @@ namespace Deckbuilder
         public void GenerateMap()
         {
             _GenerateMap();
+            
+            // Put a golem on the field
+
+            int x = Random.Range(0, widthHeight.x);
+            int y = Random.Range(0, widthHeight.y);
+            GameTile tile = MapTiles[x, y];
+
+            GameObject go = Instantiate(golemPrefab, tile.SpawnPoint.position, Quaternion.Euler(0, 180, 0));
+            go.transform.localScale = Vector3.one;
+            IInteractable golem = go.GetComponent<IInteractable>();
+            
+            allInteractables.Add(go.GetInstanceID(), golem);
+            enemyInteractables.Add(go.GetInstanceID(), golem);
+
+
         }
 
         public static int[] WorldPosToGrid(Vector3 pos)
