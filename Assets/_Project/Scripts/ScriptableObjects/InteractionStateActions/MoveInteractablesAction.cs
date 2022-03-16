@@ -29,6 +29,7 @@ namespace Deckbuilder
                     GameTile tile = groundHit.transform.GetComponent<GameTile>();
                     IInteractable currentSelection = allInteractables.Get(currentInteractable.Value.GetInstanceID());
                     
+
                     // TODO this is shit
                     int[] interactableIndices = MapGenerator.WorldPosToGrid(currentInteractable.Value.transform.position);
                     Vector2Int interactablePos = new Vector2Int(interactableIndices[0], interactableIndices[1]);
@@ -42,29 +43,10 @@ namespace Deckbuilder
 
                         currentInteractable.Value.transform.position = tile.SpawnPoint.transform.position;
                         currentSelection.Move(distance);
-                        // currentSelection.Deselect();
-                        // currentInteractable.Value = null;
                     }
-
-
-                    // GameObject clickedInteractable = hit.transform.gameObject;
-                    // if (currentInteractable.Value.GetInstanceID() != clickedInteractable.GetInstanceID())
-                    // {
-                    //     allInteractables.Get(currentInteractable.Value.GetInstanceID()).Deselect();
-                    //     currentInteractable.Value = clickedInteractable;
-                    //     allInteractables.Get(currentInteractable.Value.GetInstanceID())?.Select();
-                    //     
-                    // }
+                    
 
                 }
-                // else
-                // {
-                //     if (currentInteractable.Value)
-                //     {
-                //         allInteractables.Get(currentInteractable.Value.GetInstanceID()).Deselect();
-                //     }
-                //     currentInteractable.Value = null;
-                // }
             }
 
             

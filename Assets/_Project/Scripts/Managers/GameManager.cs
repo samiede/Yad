@@ -14,11 +14,40 @@ namespace Deckbuilder
 
         [SerializeField] private GameState startState;
         [SerializeField] private GameState currentState;
+
+        [SerializeField] Texture2D defaultCursor;
+        [SerializeField] Texture2D attackCursor;
+
+        private static Texture2D _defaultCursor;
+        private static Texture2D _attackCursor;
         void Start()
         {
+
+            _defaultCursor = defaultCursor;
+            _attackCursor = attackCursor;
+            
+            SetDefaultCursor();
+            
             _generator.GenerateMap();
             currentState = startState;
             startState.OnEnter();
+        }
+
+        public static void SetCursor(Texture2D cursor, Vector2 offset)
+        {
+
+            Cursor.SetCursor(cursor, offset, CursorMode.ForceSoftware);
+        }
+
+        public static void SetDefaultCursor()
+        {
+            var offset = new Vector2(0.35f * _defaultCursor.width, 0.25f * _defaultCursor.height); 
+            SetCursor(_defaultCursor,  offset);
+        }
+
+        public static void SetAttackCursor()
+        {
+            SetCursor(_attackCursor, Vector2.zero);
         }
 
         public void CheckForStateChange()
