@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
-  m_Name: IM_InteractableState
+  m_Name: IM_EnemyInteractableState
   m_EditorClassIdentifier: 
   _anyTransitions: []
   _transitions:
@@ -23,8 +23,10 @@ MonoBehaviour:
   - from: {fileID: 11400000}
     to: {fileID: 11400000, guid: f7091146419584ec4ac52aa67dbfd250, type: 2}
     _condition: {fileID: 11400000, guid: ae074ca4b4d9a493d90c86699b22fbe3, type: 2}
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 06cefc9dd7351484b8710676d9563738, type: 2}
+    _condition: {fileID: 11400000, guid: 241aa7dc6406a4008b212cfdcb9fe599, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
-  - {fileID: 11400000, guid: 1e0393fd19a1b4a4e892b342f3809ba7, type: 2}
   onEnterActions: []
   onExitActions: []

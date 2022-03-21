@@ -120,6 +120,12 @@ using UnityEngine.Assertions.Must;
             CalculateAndMove(_handCards.Count);
         }
 
+        public void OnCardPlayed(Card card)
+        {
+            currentCastCard.Value = null;
+
+        }
+
 
 
         #region Card Placement in Hand

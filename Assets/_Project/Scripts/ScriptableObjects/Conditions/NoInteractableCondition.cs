@@ -7,10 +7,11 @@ namespace Deckbuilder
     [CreateAssetMenu(menuName = "Conditions/NoInteractablesCondition")]
     public class NoInteractableCondition : Condition
     {
-        [SerializeField] private GameObjectVariable interactable;
+        [SerializeField] private GameObjectVariable friendlyInteractable;
+        [SerializeField] private GameObjectVariable enemyInteractable;
         public override bool Check()
         {
-            return !interactable.Value;
+            return !friendlyInteractable.Value && !enemyInteractable.Value;
         }
     }
 }

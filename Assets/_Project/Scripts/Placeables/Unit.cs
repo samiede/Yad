@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Deckbuilder
 {
-    public class Unit : BasePlaceable, IInteractable
+    public abstract class Unit : BasePlaceable, IInteractable
     {
         
         // [Header("Projectile for Ranged")]
@@ -12,18 +12,20 @@ namespace Deckbuilder
         // public Transform projectileSpawnPoint;
 
         [SerializeField] private GenericGameEvent moved;
-        
+        [SerializeField] private SpecificGameEvent<GameObject, GameObjectEvent> died;
+        [SerializeField] private GenericGameEvent deselected;
+
+        public float currentHP;
         private PlaceableData _placeableData;
+        private AudioSource _audioSource;
+        private Animator _animator;
+        public int RemainingMovement { get; private set; }
         public PlaceableData PlaceableData
         {
             get => _placeableData;
         }
 
-        public int RemainingMovement { get; private set; }
-
-
-        private AudioSource _audioSource;
-
+        private IInteractable currentTarget;
 
         
         #region Lifecycle Functions
@@ -31,52 +33,102 @@ namespace Deckbuilder
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            _animator = GetComponent<Animator>();
         }
 
-        public void Select()
+        public virtual void Select()
         {
             Debug.Log("Select");
             if (_placeableData.selectClip) _audioSource.PlayOneShot(_placeableData.selectClip);
             
         }
 
-        public void Deselect()
+        public virtual void Deselect()
         {
+            deselected.Raise();
             Debug.Log("Deselect");
         }
 
-        public void Initialize(PlaceableData data)
+        public virtual void Initialize(PlaceableData data)
         {
             _placeableData = data;
             RemainingMovement = PlaceableData.moveRange;
+            currentHP = PlaceableData.hitPoints;
         }
 
-        public void PlaySpawnClip()
+        public virtual void PlaySpawnClip()
         {
             if (_placeableData.spawnClip) _audioSource.PlayOneShot(_placeableData.spawnClip);
 
         }
 
-        public void StartTurnReset()
+        public virtual void StartTurnReset()
         {
             ResetMove();
         }
 
-        public void Move(int distance)
+        public virtual void Move(int distance)
         {
             RemainingMovement -= distance;
             moved.Raise();
         }
 
-        public void ResetMove()
+        public virtual void ResetMove()
         {
             RemainingMovement = PlaceableData.moveRange;
         }
 
-        public PlaceableData GetData()
+        public virtual bool TakeDamage(float damage)
         {
-            return _placeableData;
+            Debug.Log(this.name + "Taking Damage! " + damage);
+            currentHP = Mathf.Max(0, currentHP - damage);
+            
+            if (currentHP > 0) return false;
+            StartDeath();
+            return true;
+
         }
+
+        public void Attack(IInteractable target)
+        {
+            currentTarget = target;
+            _animator.SetTrigger("Attack");
+            Debug.Log("Attack " + target.PlaceableData.name);
+        }
+
+        public void SendDamage()
+        {
+            currentTarget.TakeDamage(_placeableData.attackDamage);
+            currentTarget = null;
+
+        }
+        
+
+
+        [ContextMenu("Die")]
+        void StartDeath()
+        {
+            Deselect();
+            PlayDeathAudio();
+            _animator.SetTrigger("Die");
+        }
+
+            
+        public void Die()
+        {
+            died.Raise(gameObject);
+        }
+
+        private void PlayDeathAudio()
+        {
+            if (_placeableData.dieClip)
+            {
+                _audioSource.PlayOneShot(_placeableData.dieClip);
+            }
+        }
+        
+        
+
         #endregion
     }
 }

@@ -23,6 +23,9 @@ MonoBehaviour:
   - from: {fileID: 11400000}
     to: {fileID: 11400000, guid: 06cefc9dd7351484b8710676d9563738, type: 2}
     _condition: {fileID: 11400000, guid: 241aa7dc6406a4008b212cfdcb9fe599, type: 2}
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 92dfc638ed91e407eb8b047fa943c4e6, type: 2}
+    _condition: {fileID: 11400000, guid: 941d368ad790c412f88b1db3a27c5d80, type: 2}
   onTickActions:
   - {fileID: 11400000, guid: b02c2392f8d7c41f4970188fbe503a0d, type: 2}
   onEnterActions: []

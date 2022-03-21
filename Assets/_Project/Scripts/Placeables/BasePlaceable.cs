@@ -7,8 +7,8 @@ namespace Deckbuilder
     public class BasePlaceable : MonoBehaviour
     {
         public PlaceableType pType;
-        [HideInInspector] public Faction faction;
-        [HideInInspector] public AttackType attackType;
+        public Faction faction;
+        public AttackType attackType;
         
 
         public enum AttackType

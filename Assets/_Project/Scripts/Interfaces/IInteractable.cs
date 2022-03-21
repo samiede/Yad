@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Deckbuilder
@@ -5,6 +7,7 @@ namespace Deckbuilder
     public interface IInteractable
     {
         public PlaceableData PlaceableData { get; }
+
         public int RemainingMovement { get; }
         
         public void Select();
@@ -17,6 +20,12 @@ namespace Deckbuilder
         public void Move(int distance);
 
         public void StartTurnReset();
+
+        public bool TakeDamage(float damage);
+
+        public void Attack(IInteractable target);
+
+        public void Die();
 
 
     }

@@ -20,25 +20,22 @@ namespace Deckbuilder
                         
             InteractionManager manager = _manager as InteractionManager;
             if (!manager) return;
-                       
-
-            if (placeable.Value)
-            {
-                Ray groundRay = manager.interactableRayProvider.CreateRay();
-                if (Physics.Raycast(groundRay, out var groundHit, Mathf.Infinity, groundMask))
-                {
-                    // TODO get this from dictionary instead
-                    GameTile tile = groundHit.transform.GetComponent<GameTile>();
-                    placeable.Value.SetActive(true);
-                    placeable.Value.transform.position = tile.SpawnPoint.transform.position;
                     
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        cardPositionChosen.Raise(currentCastCard.Value);
-                    }
+            Ray groundRay = manager.interactableRayProvider.CreateRay();
+            if (Physics.Raycast(groundRay, out var groundHit, Mathf.Infinity, groundMask))
+            {
+                // TODO get this from dictionary instead
+                GameTile tile = groundHit.transform.GetComponent<GameTile>();
+                placeable.Value.SetActive(true);
+                placeable.Value.transform.position = tile.SpawnPoint.transform.position;
+                
+                if (Input.GetMouseButtonDown(0))
+                {
+                    cardPositionChosen.Raise(currentCastCard.Value);
                 }
             }
-            
+        
+        
         }
     }
 }

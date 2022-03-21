@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d5152a6c6faf48cfb1de39260c3b317, type: 3}
-  m_Name: Interactables Condition
+  m_Script: {fileID: 11500000, guid: 5690d50d651144c3983e8ea092c5813a, type: 3}
+  m_Name: Interactable Enemy Hover Condition
   m_EditorClassIdentifier: 
-  interactable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  hoverEnemy: {fileID: 11400000, guid: fba85c84326944af996740f6f4647b73, type: 2}
+  interactables: {fileID: 11400000, guid: 48087a698b64b4ef2ad3147c8d54b3dd, type: 2}

@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace Deckbuilder
 {
-    public class MapGenerator : MonoBehaviour
+    public class BoardManager : MonoBehaviour
     {
         // TODO make into SO
         public static GameTile[,] MapTiles;
@@ -15,12 +15,15 @@ namespace Deckbuilder
         [SerializeField] private Vector2Int widthHeight;
         private Transform _transform;
         
-        [SerializeField] private InteractableDictVariable allInteractables;
-        [SerializeField] private InteractableDictVariable enemyInteractables;
+        [SerializeField] private InteractablesContainer interactables;
+        // [SerializeField] private InteractableDictVariable allInteractables;
+        // [SerializeField] private InteractableDictVariable enemyInteractables;
 
         [SerializeField] private GameObjectVariable currentInteractable;
 
+        [Header("Testing stuff")]
         [SerializeField] private GameObject golemPrefab;
+        [SerializeField] private PlaceableData golemPlaceableData;
         
         private void Awake()
         {
@@ -39,16 +42,15 @@ namespace Deckbuilder
             
             // Put a golem on the field
 
-            int x = Random.Range(0, widthHeight.x);
+            int x = Random.Range(widthHeight.x/2, widthHeight.x);
             int y = Random.Range(0, widthHeight.y);
             GameTile tile = MapTiles[x, y];
 
             GameObject go = Instantiate(golemPrefab, tile.SpawnPoint.position, Quaternion.Euler(0, 180, 0));
             go.transform.localScale = Vector3.one;
             IInteractable golem = go.GetComponent<IInteractable>();
-            
-            allInteractables.Add(go.GetInstanceID(), golem);
-            enemyInteractables.Add(go.GetInstanceID(), golem);
+            golem.Initialize(golemPlaceableData);
+            interactables.AddToEnemy(go.GetInstanceID(), golem);
 
 
         }
@@ -79,10 +81,13 @@ namespace Deckbuilder
 
             if (currentInteractable.Value)
             {
+                // TODO this could also be triggered fromm the UNIT class as an event
+                if (interactables.IsEnemy(currentInteractable.Value.GetInstanceID())) return;
+                
                 int[] indices = WorldPosToGrid(currentInteractable.Value.transform.position);
                 Vector2Int pos = new Vector2Int(indices[0], indices[1]);
 
-                IInteractable interactable = allInteractables.Get(currentInteractable.Value.GetInstanceID());
+                IInteractable interactable = interactables.GetFriendly(currentInteractable.Value.GetInstanceID());
                 HighlightWithManhattanDistance(pos, (int) interactable.RemainingMovement);
 
             }

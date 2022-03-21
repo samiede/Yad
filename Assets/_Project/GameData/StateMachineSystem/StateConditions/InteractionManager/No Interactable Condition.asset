@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b5f0ff225c4a6a97770fe0e09a151, type: 3}
   m_Name: No Interactable Condition
   m_EditorClassIdentifier: 
-  interactable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  friendlyInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  enemyInteractable: {fileID: 11400000, guid: b43bb6f6ff26442b293b201f4273de71, type: 2}

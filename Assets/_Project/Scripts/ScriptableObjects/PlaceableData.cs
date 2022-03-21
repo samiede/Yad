@@ -9,6 +9,8 @@ namespace Deckbuilder
     public class PlaceableData : ScriptableObject
     {
         [Header("Common")] 
+        public new string name;
+        public Texture2D image;
         public BasePlaceable.PlaceableType Type;
         public GameObject placeholderPrefab;
         public GameObject prefab;

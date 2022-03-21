@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
+  m_Name: IM_InteractableInteractionState
+  m_EditorClassIdentifier: 
+  _anyTransitions: []
+  _transitions:
+  - from: {fileID: 11400000}
+    to: {fileID: 11400000, guid: 06cefc9dd7351484b8710676d9563738, type: 2}
+    _condition: {fileID: 11400000, guid: 886b5bec3d5f04ba4a7ceb9de1be62f2, type: 2}
+  onTickActions:
+  - {fileID: 11400000, guid: 7cf69e45c7f9c4bcf8ce687c7340a1ae, type: 2}
+  - {fileID: 11400000, guid: 5444de860866d4c9b84a937a759c1e26, type: 2}
+  onEnterActions: []
+  onExitActions: []

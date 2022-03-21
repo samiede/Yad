@@ -6,15 +6,18 @@ namespace Deckbuilder
 {
     public class InteractionManager : MonoBehaviour, IStateMachine<InteractionManagerState>
     {
-                
-        [SerializeField] private GameObjectVariable placeable;
+        
+        [Header("Card variables")]
         [SerializeField] private CardGameEvent cardPlayed;
         [SerializeField] private CardVariable currentCastCard;
 
-        [SerializeField] private InteractableDictVariable playerInteractables;
-        [SerializeField] private InteractableDictVariable enemyInteractables;
-        [SerializeField] private InteractableDictVariable allInteractables;
+        [Header("Interactables")]
+        [SerializeField] private GameObjectVariable placeable;
+        [SerializeField] private InteractablesContainer interactables;
+        [SerializeField] private GameObjectVariable currentFriendlyInteractable;
+        [SerializeField] private GameObjectVariable currentEnemyInteractable;
 
+        [Header("State Machine")]
         [SerializeField] private InteractionManagerState startState;
         [SerializeField] private InteractionManagerState currentState;
         [SerializeField] public MouseScreenRayProvider  interactableRayProvider;
@@ -71,21 +74,28 @@ namespace Deckbuilder
                 interactable.Initialize(card.cardData.spawnPlaceablesData);
                 interactable.PlaySpawnClip();
                 
-                playerInteractables.Add(go.GetInstanceID(), interactable);
-                allInteractables.Add(go.GetInstanceID(), interactable);
-                
+                interactables.AddToFriendly(go.GetInstanceID(), interactable);
                 Destroy(placeable.Value);
-                
                 placeable.Value = null;
-                // TODO Does this have to happen in card manager? Would mean another event
-                currentCastCard.Value = null;
             }
 
         }
 
+        public void UnitDied(GameObject unit)
+        {
+            
+            interactables.RemoveEntity(unit.GetInstanceID());
+            Destroy(unit);
+        }
+
+        public void FriendlyAttackSelection(GameObject target)
+        {
+            interactables.GetFriendly(currentFriendlyInteractable.Value.GetInstanceID()).Attack(interactables.Get(target.GetInstanceID()));
+        }
+
         public void ResetInteractables()
         {
-            foreach (var interactable in playerInteractables.Dict)
+            foreach (var interactable in interactables.PlayerInteractables.Dict)
             {
                 interactable.Value.StartTurnReset();
             }

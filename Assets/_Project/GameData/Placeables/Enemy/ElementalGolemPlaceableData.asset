@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993913a54530d4039872776f8286f7de, type: 3}
+  m_Name: ElementalGolemPlaceableData
+  m_EditorClassIdentifier: 
+  name: Elemental Golem
+  image: {fileID: 2800000, guid: 343d58b9a14c9447981b9ed9a3cd2f02, type: 3}
+  Type: 0
+  placeholderPrefab: {fileID: 0}
+  prefab: {fileID: 0}
+  attackType: 0
+  targetType: 0
+  attackDamage: 1
+  attackRange: 1
+  hitPoints: 8
+  spawnClip: {fileID: 8300000, guid: 4aa632659c49f4348a18d369fa015d3e, type: 3}
+  attackClip: {fileID: 0}
+  dieClip: {fileID: 0}
+  selectClip: {fileID: 8300000, guid: 784ca8b5779b10949a57327acef4a8da, type: 3}
+  moveRange: 5
+  lifetime: -1
+  damage: 0
+  percentDamageReductionPerRound: 1
+  areaOfEffect: {x: 1, y: 1}

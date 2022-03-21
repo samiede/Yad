@@ -9,9 +9,7 @@ namespace Deckbuilder
     {
 
         [SerializeField] private GameObjectVariable currentInteractable;
-        [SerializeField] private InteractableDictVariable playerInteractables;
-        [SerializeField] private InteractableDictVariable enemyInteractables;
-        [SerializeField] private InteractableDictVariable allInteractables;
+        [SerializeField] private InteractablesContainer interactables;
         [SerializeField] private LayerMask groundMask;
 
         public override void Execute(float d, Object _manager)
@@ -27,17 +25,20 @@ namespace Deckbuilder
                 {
                     // TODO get this from dictionary instead
                     GameTile tile = groundHit.transform.GetComponent<GameTile>();
-                    IInteractable currentSelection = allInteractables.Get(currentInteractable.Value.GetInstanceID());
+                    
+                    // TODO check if tile is occupied
+                    
+                    IInteractable currentSelection = interactables.Get(currentInteractable.Value.GetInstanceID());
                     
 
                     // TODO this is shit
-                    int[] interactableIndices = MapGenerator.WorldPosToGrid(currentInteractable.Value.transform.position);
+                    int[] interactableIndices = BoardManager.WorldPosToGrid(currentInteractable.Value.transform.position);
                     Vector2Int interactablePos = new Vector2Int(interactableIndices[0], interactableIndices[1]);
                     
-                    int[] tileIndices = MapGenerator.WorldPosToGrid(groundHit.transform.position);
+                    int[] tileIndices = BoardManager.WorldPosToGrid(groundHit.transform.position);
                     Vector2Int tilePos = new Vector2Int(tileIndices[0], tileIndices[1]);
 
-                    int distance = MapGenerator.ManhattanDistance(interactablePos, tilePos);
+                    int distance = BoardManager.ManhattanDistance(interactablePos, tilePos);
                     if (distance <= currentSelection.RemainingMovement)
                     {
 
@@ -48,8 +49,6 @@ namespace Deckbuilder
 
                 }
             }
-
-            
         }
     }
 }

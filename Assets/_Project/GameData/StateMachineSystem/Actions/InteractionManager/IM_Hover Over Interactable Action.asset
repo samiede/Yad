@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23f54002be78d4ea197f82790666ac97, type: 3}
+  m_Name: IM_Hover Over Interactable Action
+  m_EditorClassIdentifier: 
+  currentlyHoveringOver: {fileID: 11400000, guid: fba85c84326944af996740f6f4647b73, type: 2}
+  interactables: {fileID: 11400000, guid: 48087a698b64b4ef2ad3147c8d54b3dd, type: 2}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 64

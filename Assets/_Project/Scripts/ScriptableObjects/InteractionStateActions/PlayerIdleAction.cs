@@ -8,10 +8,9 @@ namespace Deckbuilder
     public class PlayerIdleAction : StateAction
     {
 
-        [SerializeField] private GameObjectVariable currentInteractable;
-        [SerializeField] private InteractableDictVariable playerInteractables;
-        [SerializeField] private InteractableDictVariable enemyInteractables;
-        [SerializeField] private InteractableDictVariable allInteractables;
+        [SerializeField] private GameObjectVariable currentFriendlyInteractable;
+        [SerializeField] private GameObjectVariable currentEnemyInteractable;
+        [SerializeField] private InteractablesContainer interactables;
         [SerializeField] private LayerMask interactableMask;
 
         public override void Execute(float d, Object _manager)
@@ -26,8 +25,17 @@ namespace Deckbuilder
                 if (Physics.Raycast(ray, out var hit, Mathf.Infinity, interactableMask))
                 {
                     GameObject clickedInteractable = hit.transform.gameObject;
-                    currentInteractable.Value = clickedInteractable;
-                    allInteractables.Get(currentInteractable.Value.GetInstanceID())?.Select();
+                    interactables.Get(clickedInteractable.GetInstanceID())?.Select();
+                    if (interactables.IsFriendly(clickedInteractable.GetInstanceID()))
+                    {
+                        currentFriendlyInteractable.Value = clickedInteractable;
+                        currentEnemyInteractable.Value = null;
+                    }
+                    else
+                    {
+                        currentEnemyInteractable.Value = clickedInteractable;
+                        currentFriendlyInteractable.Value = null;
+                    }
                 }
             }
 
