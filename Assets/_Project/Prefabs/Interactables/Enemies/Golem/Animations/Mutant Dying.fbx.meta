@@ -39,7 +39,7 @@ ModelImporter:
       name: Golem Death
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
+      firstFrame: 30
       lastFrame: 275
       wrapMode: 0
       orientationOffsetY: 0

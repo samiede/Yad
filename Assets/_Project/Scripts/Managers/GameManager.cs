@@ -38,7 +38,6 @@ namespace Deckbuilder
         public void ToggleCursor()
         {
             
-            Debug.Log("Toggle");
             if (currentHoveredEnemy.Value)
             {
                 SetAttackCursor();

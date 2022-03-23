@@ -19,7 +19,7 @@ MonoBehaviour:
   prefab: {fileID: 1653467828751809282, guid: 7f0d198a8027e4ae7966a3a431aaa32e, type: 3}
   attackType: 0
   targetType: 0
-  attackDamage: 2
+  attackDamage: 4
   attackRange: 1
   hitPoints: 1
   spawnClip: {fileID: 8300000, guid: 4aa632659c49f4348a18d369fa015d3e, type: 3}

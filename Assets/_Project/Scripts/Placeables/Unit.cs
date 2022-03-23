@@ -92,8 +92,18 @@ namespace Deckbuilder
         public void Attack(IInteractable target)
         {
             currentTarget = target;
+            Vector3 targetDirection = (transform.position - target.GetGameObject().transform.position);
+            targetDirection.y = 0.0f;
+            targetDirection.Normalize();
+            transform.forward = -targetDirection;
             _animator.SetTrigger("Attack");
             Debug.Log("Attack " + target.PlaceableData.name);
+            
+            // Vector3 targetDirection = (transform.position - target.GetGameObject().transform.position);
+            // targetDirection.y = 0.0f;
+            // targetDirection.Normalize();
+            // Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+            // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 100 * Time.deltaTime);
         }
 
         public void SendDamage()
@@ -117,6 +127,11 @@ namespace Deckbuilder
         public void Die()
         {
             died.Raise(gameObject);
+        }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
         }
 
         private void PlayDeathAudio()
