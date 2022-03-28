@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
   m_Name: IM_InteractableInteractionState
   m_EditorClassIdentifier: 
+  BreakAction: {fileID: 11400000, guid: a0a8e241d9fde419b9e1f2dc0744d7fe, type: 2}
   _anyTransitions: []
   _transitions:
   - from: {fileID: 11400000}
@@ -20,5 +21,6 @@ MonoBehaviour:
   onTickActions:
   - {fileID: 11400000, guid: 7cf69e45c7f9c4bcf8ce687c7340a1ae, type: 2}
   - {fileID: 11400000, guid: 5444de860866d4c9b84a937a759c1e26, type: 2}
+  - {fileID: 11400000, guid: d822a98d803ac4cc199385c225eabe3d, type: 2}
   onEnterActions: []
   onExitActions: []

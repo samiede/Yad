@@ -9,7 +9,7 @@ namespace Deckbuilder
 
     public abstract class StateAction : BaseAction
     {
-        public abstract void Execute(float d, Object manager);
+        public abstract ActionResult Execute(float d, Object manager);
 
     }
 

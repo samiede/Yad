@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Deckbuilder
 {
-    public class InteractionManager : MonoBehaviour, IStateMachine<InteractionManagerState>
+    public class InteractionManager : StateMachineBase<InteractionManagerState>
     {
         
         [Header("Card variables")]
@@ -18,8 +18,8 @@ namespace Deckbuilder
         [SerializeField] private GameObjectVariable currentEnemyInteractable;
 
         [Header("State Machine")]
-        [SerializeField] private InteractionManagerState startState;
-        [SerializeField] private InteractionManagerState currentState;
+        // [SerializeField] private InteractionManagerState startState;
+        // [SerializeField] private InteractionManagerState currentState;
         [SerializeField] public MouseScreenRayProvider  interactableRayProvider;
 
         void Start()
@@ -34,20 +34,20 @@ namespace Deckbuilder
             currentState.Tick(Time.deltaTime);
         }
 
-        public void CheckForStateChange()
-        {
-            InteractionManagerState nextState = currentState.ReturnNextState() as InteractionManagerState;
-            if (nextState == currentState || !nextState) return;
-            nextState.SetManager(this);
-            SetState(nextState);
-        }
-
-        public void SetState(InteractionManagerState state)
-        {
-            currentState.OnExit();
-            currentState = state;
-            currentState.OnEnter();
-        }
+        // public void CheckForStateChange()
+        // {
+        //     InteractionManagerState nextState = currentState.ReturnNextState() as InteractionManagerState;
+        //     if (nextState == currentState || !nextState) return;
+        //     nextState.SetManager(this);
+        //     SetState(nextState);
+        // }
+        //
+        // public void SetState(InteractionManagerState state)
+        // {
+        //     currentState.OnExit();
+        //     currentState = state;
+        //     currentState.OnEnter();
+        // }
 
         public void CardCast(Card card)
         {

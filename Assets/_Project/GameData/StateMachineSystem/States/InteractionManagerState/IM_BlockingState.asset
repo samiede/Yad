@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72bcaa57b3ea4e2eaa35dcea8c5f9844, type: 3}
   m_Name: IM_BlockingState
   m_EditorClassIdentifier: 
+  BreakAction: {fileID: 11400000, guid: a0a8e241d9fde419b9e1f2dc0744d7fe, type: 2}
   _anyTransitions: []
   _transitions:
   - from: {fileID: 11400000}

@@ -8,7 +8,7 @@ using UnityEngine.Assertions.Must;
 
     namespace Deckbuilder
 {
-    public class CardManager : MonoBehaviour, IStateMachine<CardHandlerState>
+    public class CardManager : StateMachineBase<CardHandlerState>
     {
         [Header("Card Data")]
         [SerializeField] private DeckData playerDeck;
@@ -36,10 +36,10 @@ using UnityEngine.Assertions.Must;
         
 
         
-        
-        [SerializeField] private CardHandlerState startState;
-        [SerializeField] private CardHandlerState currentState;
-        
+        //
+        // [SerializeField] private CardHandlerState startState;
+        // [SerializeField] private CardHandlerState currentState;
+        //
         
         IEnumerator InitDeck()
         {
@@ -59,20 +59,20 @@ using UnityEngine.Assertions.Must;
         }
         
         
-        public void CheckForStateChange()
-        {
-            CardHandlerState nextState = currentState.ReturnNextState() as CardHandlerState;
-            if (nextState == currentState || !nextState) return;
-            nextState.SetManager(this);
-            SetState(nextState);
-        }
+        // public void CheckForStateChange()
+        // {
+        //     CardHandlerState nextState = currentState.ReturnNextState() as CardHandlerState;
+        //     if (nextState == currentState || !nextState) return;
+        //     nextState.SetManager(this);
+        //     SetState(nextState);
+        // }
 
-        public void SetState(CardHandlerState state)
-        {
-            currentState.OnExit();
-            currentState = state;
-            currentState.OnEnter();
-        }
+        // public void SetState(CardHandlerState state)
+        // {
+        //     currentState.OnExit();
+        //     currentState = state;
+        //     currentState.OnEnter();
+        // }
 
         private void Update()
         {   
