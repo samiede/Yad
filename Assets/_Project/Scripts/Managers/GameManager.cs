@@ -51,7 +51,7 @@ namespace Deckbuilder
         public static void SetCursor(Texture2D cursor, Vector2 offset)
         {
 
-            Cursor.SetCursor(cursor, offset, CursorMode.Auto);
+            Cursor.SetCursor(cursor, offset, CursorMode.ForceSoftware);
         }
 
         public static void SetDefaultCursor()
@@ -62,7 +62,8 @@ namespace Deckbuilder
 
         public static void SetAttackCursor()
         {
-            SetCursor(_attackCursor, Vector2.zero);
+            var offset = new Vector2(0.35f * _attackCursor.width, 0.25f * _attackCursor.height);
+            SetCursor(_attackCursor, offset);
         }
 
         public void CheckForStateChange()
