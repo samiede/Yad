@@ -25,9 +25,13 @@ namespace Deckbuilder
 
         public void Attack(IInteractable target);
 
+        public void RestoreHealth(float amount);
+
         public void Die();
         
         public GameObject GetGameObject();
+
+        public Unit GetUnit();
 
 
 

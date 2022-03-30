@@ -14,6 +14,7 @@ namespace Deckbuilder
         [SerializeField] private GameObject interactablesPanel;
         [SerializeField] private RawImage interactablesImage;
         [SerializeField] private TextMeshProUGUI interactablesName;
+        [SerializeField] private Button skillButton;
 
 
         public void DisplayCurrentInteractablePanel()
@@ -28,11 +29,23 @@ namespace Deckbuilder
             {
                 interactablesImage.texture = currentInteractable.PlaceableData.image;
             }
+
+            if (currentInteractable.GetUnit().HasSkills)
+            {
+                skillButton.gameObject.SetActive(true);
+                skillButton.onClick.AddListener(currentInteractable.GetUnit().ExecuteHeal);
+            }
+            else
+            {
+                skillButton.gameObject.SetActive(false);
+
+            }
         }
 
         public void HideInteractablePanel()
         {
             interactablesPanel.SetActive(false);
+            skillButton.gameObject.SetActive(false);
             Debug.Log("Hide");
         }
         

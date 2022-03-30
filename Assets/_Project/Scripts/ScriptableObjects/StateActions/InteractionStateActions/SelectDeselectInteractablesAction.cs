@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Deckbuilder
 {        
@@ -15,7 +16,7 @@ namespace Deckbuilder
         {
             
             InteractionManager manager = _manager as InteractionManager;
-            if (!manager) return ActionResult.Pass;
+            if (!manager || EventSystem.current.IsPointerOverGameObject()) return ActionResult.Pass;
 
             if (Input.GetMouseButtonDown(0))
             {

@@ -1714,10 +1714,14 @@ MonoBehaviour:
   pType: 0
   faction: 0
   attackType: 0
+  skillEffectSpawnPoint: {x: 0, y: 0, z: 0}
   moved: {fileID: 11400000, guid: 4bd8b2da0840144a2baeae345cec91bc, type: 2}
   died: {fileID: 11400000, guid: e181b2a789cf441b798131d70cf658b3, type: 2}
   deselected: {fileID: 11400000, guid: fb473928b73b74680b24297710a413c8, type: 2}
+  currentSelectedSkill: {fileID: 11400000, guid: 4536d3d5a8b0b4ff9914b4128b5fd7a6, type: 2}
   currentHP: 0
+  skills:
+  - {fileID: 11400000, guid: cf125232c64fa4cf8805194e7e316207, type: 2}
 --- !u!1 &1653670105383444638
 GameObject:
   m_ObjectHideFlags: 0

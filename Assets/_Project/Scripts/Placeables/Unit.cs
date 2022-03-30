@@ -10,15 +10,19 @@ namespace Deckbuilder
         // [Header("Projectile for Ranged")]
         // public GameObject projectilePrefab;
         // public Transform projectileSpawnPoint;
+        [Header("Skills")] public Vector3 skillEffectSpawnPoint;
 
         [SerializeField] private GenericGameEvent moved;
         [SerializeField] private SpecificGameEvent<GameObject, GameObjectEvent> died;
         [SerializeField] private GenericGameEvent deselected;
+        [SerializeField] private SkillVariable currentSelectedSkill;
 
         public float currentHP;
         private PlaceableData _placeableData;
         private AudioSource _audioSource;
+        public AudioSource AudioSource => _audioSource;
         private Animator _animator;
+        public Animator Animator => _animator;
         public int RemainingMovement { get; private set; }
         public PlaceableData PlaceableData
         {
@@ -27,6 +31,10 @@ namespace Deckbuilder
 
         private IInteractable currentTarget;
 
+        [SerializeField] private List<BaseSkill> skills;
+
+        public bool HasSkills => skills.Count > 0;
+
         
         #region Lifecycle Functions
         
@@ -34,6 +42,7 @@ namespace Deckbuilder
         {
             _audioSource = GetComponent<AudioSource>();
             _animator = GetComponent<Animator>();
+            skillEffectSpawnPoint = transform.position;
         }
 
         public virtual void Select()
@@ -86,7 +95,11 @@ namespace Deckbuilder
             if (currentHP > 0) return false;
             StartDeath();
             return true;
+        }
 
+        public virtual void RestoreHealth(float amount)
+        {
+            currentHP = Mathf.Min(currentHP + amount, _placeableData.hitPoints);
         }
 
         public void Attack(IInteractable target)
@@ -98,12 +111,6 @@ namespace Deckbuilder
             transform.forward = -targetDirection;
             _animator.SetTrigger("Attack");
             Debug.Log("Attack " + target.PlaceableData.name);
-            
-            // Vector3 targetDirection = (transform.position - target.GetGameObject().transform.position);
-            // targetDirection.y = 0.0f;
-            // targetDirection.Normalize();
-            // Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 100 * Time.deltaTime);
         }
 
         public void SendDamage()
@@ -111,6 +118,17 @@ namespace Deckbuilder
             currentTarget.TakeDamage(_placeableData.attackDamage);
             currentTarget = null;
 
+        }
+
+        [ContextMenu("Heal")]
+        public void ExecuteHeal()
+        {
+            if (skills[0].targetSelf)
+                skills[0].Execute(this, gameObject);
+            else
+            {
+                currentSelectedSkill.Value = skills[0];
+            }
         }
         
 
@@ -132,6 +150,11 @@ namespace Deckbuilder
         public GameObject GetGameObject()
         {
             return gameObject;
+        }
+
+        public Unit GetUnit()
+        {
+            return this;
         }
 
         private void PlayDeathAudio()

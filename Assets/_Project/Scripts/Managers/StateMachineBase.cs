@@ -13,6 +13,7 @@ namespace Deckbuilder
         {
             T nextState = currentState.ReturnNextState() as T;
             if (nextState == currentState || !nextState) return;
+            Debug.Log(nextState.name);
             currentState.PushStateBreak();
             nextState.SetManager(this);
             SetState(nextState);

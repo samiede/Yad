@@ -176,7 +176,7 @@ namespace Deckbuilder
         public override void Raise()
         {
             base.Raise();
-            _event.Invoke(Value);
+            _event?.Invoke(Value);
             if (_genericEvent) _genericEvent.Raise();
         }
         
