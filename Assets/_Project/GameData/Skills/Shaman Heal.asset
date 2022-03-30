@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e416c5f41e7a34efb879a618ed546275, type: 3}
+  m_Name: Shaman Heal
+  m_EditorClassIdentifier: 
+  targetEffect: {fileID: 1329411796538254871, guid: 304ab1338219a49b7ade163bf7e12b35, type: 3}
+  castEffect: {fileID: 0}
+  animationClip: {fileID: -203655887218126122, guid: c7c9cf5ac54e34bebaef37f9bc0d12b2, type: 3}
+  castSoundEffect: {fileID: 8300000, guid: 926635932a24c624ba0c78b62179454c, type: 3}
+  skillImage: {fileID: 0}
+  skillName: Heal
+  cost: 0
+  numUsages: 0
+  targetSelf: 0
+  interactables: {fileID: 11400000, guid: 48087a698b64b4ef2ad3147c8d54b3dd, type: 2}
+  targetFaction: 0
+  healAmount: 30

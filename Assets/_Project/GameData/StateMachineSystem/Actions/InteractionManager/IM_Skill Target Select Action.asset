@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 767d9fb591e04d54985cc10858b6c46e, type: 3}
+  m_Name: IM_Skill Target Select Action
+  m_EditorClassIdentifier: 
+  currentFriendlyInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
+  currentSkill: {fileID: 11400000, guid: 4536d3d5a8b0b4ff9914b4128b5fd7a6, type: 2}
+  interactables: {fileID: 11400000, guid: 48087a698b64b4ef2ad3147c8d54b3dd, type: 2}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 64
