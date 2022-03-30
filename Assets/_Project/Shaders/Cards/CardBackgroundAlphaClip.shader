@@ -7,6 +7,7 @@ Shader "Custom/CardBackgroundAlphaClip"
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
+        _Cutoff("Cutoff", float) = 0.5
     }
     SubShader
     {
@@ -15,7 +16,7 @@ Shader "Custom/CardBackgroundAlphaClip"
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows alpha
+        #pragma surface surf Standard fullforwardshadows alphatest:_Cutoff addshadow
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -42,13 +43,13 @@ Shader "Custom/CardBackgroundAlphaClip"
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex);
+            clip(c.a - 0.1);
             
             o.Albedo = lerp(_RimColor, _Color, c);
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
             o.Alpha = c.a;
-            clip(c.a - 0.5);
         }
         ENDCG
     }

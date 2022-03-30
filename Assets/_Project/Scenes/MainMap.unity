@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2986758, g: 0.589767, b: 0.78590655, a: 1}
+  m_IndirectSpecularColor: {r: 0.29867584, g: 0.5897666, b: 0.78590655, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 464583686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e34026665efef4b86b042f9cd49fc233, type: 3}
   m_Name: 
@@ -1566,14 +1566,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8a67ef912e84a6bb9fea1200dc9ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
+  currentState: {fileID: 0}
   cardPlayed: {fileID: 11400000, guid: 13fe1a8754d0345a3a63e73511fbe0c4, type: 2}
   currentCastCard: {fileID: 11400000, guid: 8dc6daef0ce2943898421cd12f7130f5, type: 2}
   placeable: {fileID: 11400000, guid: c9a09581af63d4067abaf05a360c20cf, type: 2}
   interactables: {fileID: 11400000, guid: 48087a698b64b4ef2ad3147c8d54b3dd, type: 2}
   currentFriendlyInteractable: {fileID: 11400000, guid: df529fb9dc70c4dacb67e2069bcb5fe7, type: 2}
   currentEnemyInteractable: {fileID: 11400000, guid: b43bb6f6ff26442b293b201f4273de71, type: 2}
-  startState: {fileID: 11400000, guid: 7994bfde8f9434a9ca4d3180bc305cd4, type: 2}
-  currentState: {fileID: 0}
   interactableRayProvider: {fileID: 1672549547}
 --- !u!114 &1672549547
 MonoBehaviour:
@@ -1905,6 +1905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a08a1d50bb64495b9c33db5d1dc3226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startState: {fileID: 11400000, guid: 1157be4d76da14cf2995407262cf3879, type: 2}
+  currentState: {fileID: 0}
   playerDeck: {fileID: 11400000, guid: 223394b1999fb411692a43d6de62fd0d, type: 2}
   currentlySelectedCardObject: {fileID: 11400000, guid: cc425e2dc1cb045b7820414abdd14025, type: 2}
   currentCastCard: {fileID: 11400000, guid: 8dc6daef0ce2943898421cd12f7130f5, type: 2}
@@ -1918,8 +1920,6 @@ MonoBehaviour:
   cardMargin: 0.15
   cardParent: {fileID: 1595544475}
   _cardRayProvider: {fileID: 1766343214}
-  startState: {fileID: 11400000, guid: 1157be4d76da14cf2995407262cf3879, type: 2}
-  currentState: {fileID: 0}
 --- !u!114 &1766343216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2200,7 +2200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.00036621094, y: 0.00024414062}
+  m_AnchoredPosition: {x: -0.00048828125, y: 0.00024414062}
   m_SizeDelta: {x: 500, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2066260764
