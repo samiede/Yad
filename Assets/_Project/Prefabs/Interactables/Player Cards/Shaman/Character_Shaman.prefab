@@ -1719,6 +1719,7 @@ MonoBehaviour:
   died: {fileID: 11400000, guid: e181b2a789cf441b798131d70cf658b3, type: 2}
   deselected: {fileID: 11400000, guid: fb473928b73b74680b24297710a413c8, type: 2}
   currentSelectedSkill: {fileID: 11400000, guid: 4536d3d5a8b0b4ff9914b4128b5fd7a6, type: 2}
+  healthBarCreator: {fileID: 11400000, guid: 16db2602ad13f4cc381632241ae89ed0, type: 2}
   currentHP: 0
   skills:
   - {fileID: 11400000, guid: cf125232c64fa4cf8805194e7e316207, type: 2}

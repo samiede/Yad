@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,12 @@ namespace Deckbuilder
         [SerializeField] private GenericGameEvent deselected;
         [SerializeField] private SkillVariable currentSelectedSkill;
 
+
+        [Header("Visuals")] 
+        [SerializeField] private HealthBarCreator healthBarCreator;
+
         public float currentHP;
+        private HealthBar _healthBar;
         private PlaceableData _placeableData;
         private AudioSource _audioSource;
         public AudioSource AudioSource => _audioSource;
@@ -44,6 +50,7 @@ namespace Deckbuilder
             _animator = GetComponent<Animator>();
             skillEffectSpawnPoint = transform.position;
         }
+        
 
         public virtual void Select()
         {
@@ -63,6 +70,7 @@ namespace Deckbuilder
             _placeableData = data;
             RemainingMovement = PlaceableData.moveRange;
             currentHP = PlaceableData.hitPoints;
+            MakeHealthBar();
         }
 
         public virtual void PlaySpawnClip()
@@ -91,6 +99,7 @@ namespace Deckbuilder
         {
             Debug.Log(this.name + "Taking Damage! " + damage);
             currentHP = Mathf.Max(0, currentHP - damage);
+            _healthBar.OnHealthChanged(currentHP);
             
             if (currentHP > 0) return false;
             StartDeath();
@@ -100,6 +109,8 @@ namespace Deckbuilder
         public virtual void RestoreHealth(float amount)
         {
             currentHP = Mathf.Min(currentHP + amount, _placeableData.hitPoints);
+            _healthBar.OnHealthChanged(currentHP);
+
         }
 
         public void Attack(IInteractable target)
@@ -129,6 +140,15 @@ namespace Deckbuilder
             {
                 currentSelectedSkill.Value = skills[0];
             }
+        }
+
+        private void MakeHealthBar()
+        {
+            if (!healthBarCreator) return;
+            
+            _healthBar = healthBarCreator.CreateHealthBar();
+            _healthBar.InitWithUnitData(transform, _placeableData.hitPoints);
+
         }
         
 
